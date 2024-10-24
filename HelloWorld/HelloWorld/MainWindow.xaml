@@ -1,0 +1,15 @@
+﻿<Window x:Class="HelloWorld.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Hellow" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click" Height="100" Width="152" Name="HellowButton" Margin="129,0,0,0"/>
+        <Label Content="HELLO WORLD" HorizontalAlignment="Center" Margin="0,41,0,0" VerticalAlignment="Top" Name="HelloLabel" Height="102" Width="378" FontSize="56"/>
+        <Button Content="Byew" HorizontalAlignment="Left" Margin="540,162,0,0" VerticalAlignment="Top" Height="100" Width="152" Name="ByewButton" Click="ByewButton_Click"/>
+
+    </Grid>
+</Window>

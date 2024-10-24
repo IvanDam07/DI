@@ -1,0 +1,41 @@
+﻿<Window x:Class="Grid_Ejemplo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Grid_Ejemplo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <GridSplitter HorizontalAlignment="Left" Height="370" Margin="100,10,0,0" VerticalAlignment="Top" Width="5"/>
+        <Grid Margin="0,87,705,54">
+            <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Center" Width="74" Height="273" Name="tbComment"/>
+        </Grid>
+        <Grid Margin="0,0,705,352">
+            <Label Content="Name" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Name="lName"/>
+            <Label Content="E-Mail" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top" Name="lEmail"/>
+        </Grid>
+        <Grid Margin="0,385,0,0">
+            <Button Content="Send" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Name="bSend"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Width="690" Margin="110,0,0,393">
+            <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="670" Height="21" RenderTransformOrigin="0.5,0.5" FontSize="20" Name="tlName">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+        </Grid>
+        <Grid Margin="110,46,0,347">
+            <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="670" Height="21" Name="tbEmail"/>
+        </Grid>
+        <Grid Margin="110,92,0,54">
+            <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="670" Height="268" Name="tbComment2"/>
+        </Grid>
+
+    </Grid>
+</Window>

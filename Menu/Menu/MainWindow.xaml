@@ -1,0 +1,34 @@
+﻿<Window x:Class="Menu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Menu"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu Name="menu1" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="A_brir" IsCheckable="True"/>
+                <MenuItem Header="_Cerrar" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="_Guardar">
+                    <MenuItem.Icon>
+                        <Image Source="setup.ico" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="A_gregar">
+                    <MenuItem Header="Proyecto"/>
+                    <MenuItem Header="Archivo" />
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="_View" >
+                <MenuItem Name="menuMax" Header="Max" Click="Max_Click" IsCheckable="True"/>
+                <MenuItem Name="menuMin" Header="Min" Click="Min_Click" IsCheckable="True"/>
+                <MenuItem Header="Close" Click="Close_Click" IsCheckable="True"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

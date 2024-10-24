@@ -1,0 +1,40 @@
+﻿<Window x:Class="ejDifferentContainers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ejDifferentContainers"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <UniformGrid Columns="2" Rows="2">
+        <WrapPanel Name="contWrap" Orientation="Vertical" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">
+            <Button Content="BTN 1 1"/>
+            <Button Content="BTN 0 1"/>
+            <Label Content="This is a test"/>
+            <TextBox Text="TextBox"/>
+            <RadioButton Content="Radio"/>
+        </WrapPanel>
+        <StackPanel Name="contStack" Orientation="Vertical">
+            <Button Content="BTN 1 1"/>
+            <Button Content="BTN 0 2"/>
+            <Label Content="Label"/>
+            <TextBox Text="TextBox" TextWrapping="Wrap"/>
+            <RadioButton Content="RadioButton"/>
+        </StackPanel>
+        <DockPanel Name="contDock">
+            <Button Content="BTN 1 1" DockPanel.Dock="Top"/>
+            <Button Content="BTN 0 2" DockPanel.Dock="Bottom"/>
+            <Label Content="Label" DockPanel.Dock="Left"/>
+            <TextBox Text="TextBox" DockPanel.Dock="Right"/>
+            <RadioButton Content="RadioButton" Width="95"/>
+        </DockPanel>
+        <Canvas Name="contCanva">
+            <Button Content="BTN 1 1" Canvas.Top="10" Canvas.Left="20"/>
+            <Button Content="BTN 0 2" Canvas.Left="65" Canvas.Top="42"/>
+            <Label Content="Label" Canvas.Left="7" Canvas.Top="39"/>
+            <TextBox Canvas.Left="77" Canvas.Top="11"/>
+        </Canvas>
+    </UniformGrid>
+</Window>
