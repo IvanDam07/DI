@@ -1,0 +1,73 @@
+﻿<Window x:Class="GameProyect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameProyect"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="STORE" >
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="5.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+                        <Label Content="Select Player: " HorizontalAlignment="Left" Margin="71,0,0,0" VerticalAlignment="Center"/>
+                        <ComboBox Name="cboPlayer" Width="230" Margin="15" SelectionChanged="cboPlayer_SelectionChanged"/>
+                        <Label Name="lblAvaible" Content="Avaible Points: " Margin="5" Height="28"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                        <Button Name="btnNew" Content="NEW" Width="100" HorizontalAlignment="Left" Margin="20" Click="btnNew_Click"/>
+                        <Button Name="btnDelete" Content="DELETE" Width="100" HorizontalAlignment="Left" Margin="20" Click="btnDelete_Click"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Margin="10">
+                        <Label Content="Purchased Products"/>
+                        <DataGrid Name="dgvStore" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding id}" Header="id"/>
+                                <DataGridTextColumn Binding="{Binding name}" Header="Ability"/>
+                                <DataGridTextColumn Binding="{Binding points}" Header="Points"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+                        <Separator Visibility="Hidden" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Border BorderBrush="Gray">
+                                <StackPanel Orientation="Vertical">
+                                    <Image x:Name="imgWand" Tag="Wand" Source="../images/wand.png" IsEnabled="True" Height="64" Width="64"/>
+                                    <Label Content="100 pt"/>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Gray">
+                                <StackPanel Orientation="Vertical">
+                                    <Image x:Name="imgLightning" Tag="Ray" Source="../images/lightning.png" IsEnabled="True" Height="64" Width="64"/>
+                                    <Label Content="50 pt"/>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Gray">
+                                <StackPanel Orientation="Vertical">
+                                    <Image x:Name="imgBrain" Tag="Brain" Source="../images/brain.png" IsEnabled="True" Height="64" Width="64"/>
+                                    <Label Content="25 pt"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Name="btnSave" Grid.Column="1" Content="SAVE" HorizontalAlignment="Center" Margin="50" Grid.Row="2" VerticalAlignment="Top" Height="21" Width="111" Click="btnSave_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="GAME">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
