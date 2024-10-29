@@ -1,0 +1,61 @@
+﻿<Window x:Class="MarioBrosGrafico.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarioBrosGrafico"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="START">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Name="tBlockLives" Text="Nº Lives: " HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" Height="21" Width="73" TextAlignment="Center"/>
+                        <TextBox Name="tBoxLives" HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="176" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <TextBlock Name="tBlockPotions" Text="Nº Potions: " HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" Height="21" Width="73" TextAlignment="Center"/>
+                        <TextBox Name="tBoxPotions" HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="176" Height="25"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="GAME">
+                <Grid>
+                    <Grid Margin="10" ShowGridLines="True" Name="GameGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
