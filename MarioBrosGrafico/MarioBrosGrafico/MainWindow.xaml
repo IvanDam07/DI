@@ -27,11 +27,48 @@
                         <TextBlock Name="tBlockPotions" Text="Nº Potions: " HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" Height="21" Width="73" TextAlignment="Center"/>
                         <TextBox Name="tBoxPotions" HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="176" Height="25"/>
                     </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Name="btnStart" Content="START" Width="100" Height="25" FontSize="16" Click="btnStart_Click"/>
+                    </StackPanel>
+                    <Grid Background="Gray" Grid.Row="2" Grid.ColumnSpan="2" Margin="498,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height="1.5*"/>
+                        </Grid.RowDefinitions>
+                        <Label>
+                            <TextBlock Text="Leyend" FontWeight="Bold" FontSize="16">
+                                <TextBlock.TextDecorations>
+                                    <TextDecoration Location="Underline"/>
+                                </TextBlock.TextDecorations>
+                            </TextBlock>
+                        </Label>
+                        <StackPanel Orientation="Vertical" Grid.Row="1">
+                            <Label Content="Dies -> If lives = 0" Grid.Row="1" FontWeight="Bold"/>
+                            <Label Content="Wins -> If potions > 5" Grid.Row="1" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="GAME">
                 <Grid>
-                    <Grid Margin="10" ShowGridLines="True" Name="GameGrid">
+                    <!-- Definición de las filas y columnas -->
+                    <Grid.RowDefinitions>
+                        <!-- Filas del Grid 8x8 -->
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <!-- Fila adicional para el botón -->
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Grid 8x8 -->
+                    <Grid Grid.Row="0" Grid.RowSpan="8" Margin="10" ShowGridLines="True" Name="GameGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -53,7 +90,9 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                     </Grid>
-                    
+
+                    <!-- Botón en la fila adicional -->
+                    <Button Name="btnPlay" Content="PLAY" Grid.Row="8" HorizontalAlignment="Right" Margin="10" Width="90" Height="20" Click="btnPlay_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
