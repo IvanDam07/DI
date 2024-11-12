@@ -1,0 +1,40 @@
+﻿<Window x:Class="ExampleMVCnoDatabase.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleMVCnoDatabase"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="63*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" >
+            <StackPanel Orientation="Horizontal">
+        <Button x:Name="btnNew" Content="NEW" Margin="20" Click="btnNew_Click"></Button>
+            <Button x:Name="btnDel" Content="DEL" Margin="20" Click="btnDel_Click"></Button>
+            </StackPanel>
+            <DataGrid x:Name="dgvPeople" AutoGenerateColumns="False" IsReadOnly="True" Margin="5" SelectionChanged="dgvPeople_SelectionChanged">
+            <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="NAME" Binding="{Binding name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="AGE" Binding="{Binding age}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Name: " Margin="5" ></Label>
+                <TextBox x:Name="txtName" Margin="5" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Age: " Margin="5"></Label>
+                <TextBox x:Name="txtAge" Margin="5" Width="100"></TextBox>
+            </StackPanel>
+            <Button x:Name="btnSave" Content="Save" Grid.Column="1" Margin="20" Click="btnSave_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
