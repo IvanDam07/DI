@@ -1,8 +1,8 @@
-﻿<Application x:Class="GESTPRO_IvanSobrinoCalzado.App"
+﻿<Application x:Class="proyectoPersonas.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GESTPRO_IvanSobrinoCalzado"
-             StartupUri="View/MainWindow.xaml">
+             xmlns:local="clr-namespace:proyectoPersonas"
+             StartupUri="/view/MainWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>

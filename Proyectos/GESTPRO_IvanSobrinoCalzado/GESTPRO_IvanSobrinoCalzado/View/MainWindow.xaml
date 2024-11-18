@@ -43,8 +43,8 @@
                         <ColumnDefinition Width="1.5*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Source="./Images/logotipo-ies-maestredecalatrava-1.png" Grid.Row="4" Grid.Column="3"/>
-                    <Image Source="./Images/palm_3086199.png" Grid.Column="1" Grid.ColumnSpan="3" Margin="193,16,113,63" Grid.RowSpan="4" Grid.Row="1" Opacity="0.3"/>
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="4" Grid.Column="3"/>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="1" Grid.ColumnSpan="3" Margin="193,16,113,63" Grid.RowSpan="4" Grid.Row="1" Opacity="0.3"/>
                     <Ellipse HorizontalAlignment="Left" Height="57" Margin="10,0,0,0" VerticalAlignment="Center" Width="133" Fill="#FFF993FF" Grid.Row="1" Grid.ColumnSpan="2">
                         <UIElement.RenderTransform>
                             <TransformGroup>
@@ -130,7 +130,6 @@
                             <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                             <DataGridTextColumn Header="Fecha Inicio" Binding="{Binding FechaInicio, StringFormat='dd/MM/yyyy'}"/>
                             <DataGridTextColumn Header="Fecha Fin" Binding="{Binding FechaFin, StringFormat='dd/MM/yyyy'}"/>
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -150,8 +149,8 @@
                         <Label Content="Fecha Fin"/>
                         <DatePicker x:Name="dpFechaFin" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
                     </StackPanel>
-                    <Image Source="./Images/palm_3086199.png" Grid.Column="4" Margin="89,-16,0,32" Grid.RowSpan="2" Opacity="0.3"/>
-                    <Image Source="./Images/logotipo-ies-maestredecalatrava-1.png" Grid.Row="5" Grid.Column="0"/>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="3" Margin="10,-2,127,45" Grid.RowSpan="3" Opacity="0.3" Grid.ColumnSpan="2"/>
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="5" Grid.Column="0"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="2">
                         <Button Content="Añadir" Name="bAnadir" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bAnadir_Click" />
                         <Button Content="Modificar" Name="bModificar" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bModificar_Click"/>
