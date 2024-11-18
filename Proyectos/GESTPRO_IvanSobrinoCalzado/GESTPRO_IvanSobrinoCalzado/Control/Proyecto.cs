@@ -8,14 +8,13 @@ namespace GESTPRO_IvanSobrinoCalzado.Control
 {
     class Proyecto
     {
+        private string codigoProyecto;
+        private string nombre;
+        private DateTime fechaInicio;
+        private DateTime fechaFin;
 
-        private String codigoProyecto;
-        private String nombre;
-        private String fechaInicio;
-        private String fechaFin;        
-
-        //Constructor 
-        public Proyecto (String codigoProyecto, String nombre, String fechaInicio, String fechaFin)
+        // Constructor 
+        public Proyecto(string codigoProyecto, string nombre, DateTime fechaInicio, DateTime fechaFin)
         {
             this.codigoProyecto = codigoProyecto;
             this.nombre = nombre;
@@ -25,7 +24,7 @@ namespace GESTPRO_IvanSobrinoCalzado.Control
 
         public string CodigoProyecto { get => codigoProyecto; set => codigoProyecto = value; }
         public string Nombre { get => nombre; set => nombre = value; }
-        public string FechaInicio { get => fechaInicio; set => fechaInicio = value; }
-        public string FechaFin { get => fechaFin; set => fechaFin = value; }
+        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
+        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
     }
 }

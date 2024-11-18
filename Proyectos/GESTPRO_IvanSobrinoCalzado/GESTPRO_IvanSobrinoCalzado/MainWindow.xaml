@@ -67,7 +67,7 @@
                             </TransformGroup>
                         </UIElement.RenderTransform>
                     </Ellipse>
-                    <Button Content="ESTADISTICAS" Name="bEstadistica" Grid.Row="1" Grid.Column="1" Width="130" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" />
+                    <Button Content="ESTADISTICAS" Name="bEstadistica" Grid.Row="1" Grid.Column="1" Width="130" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Click="bEstadistica_Click" />
 
                     <Ellipse HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="133" Fill="#FFF993FF" Grid.Row="2" Grid.Column="1" Margin="34,7,0,0">
                         <UIElement.RenderTransform>
@@ -79,7 +79,7 @@
                             </TransformGroup>
                         </UIElement.RenderTransform>
                     </Ellipse>
-                    <Button Content="USUARIOS" Name="bUsuarios" Grid.Row="2" Grid.Column="1" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Margin="46,17,31,17"/>
+                    <Button Content="USUARIOS" Name="bUsuarios" Grid.Row="2" Grid.Column="1" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Margin="46,17,31,17" Click="bUsuarios_Click"/>
 
                     <Ellipse HorizontalAlignment="Left" Height="57" VerticalAlignment="Center" Width="133" Fill="#FFF993FF" Grid.Row="2" Margin="10,0,0,0" Grid.ColumnSpan="2">
                         <UIElement.RenderTransform>
@@ -91,7 +91,7 @@
                             </TransformGroup>
                         </UIElement.RenderTransform>
                     </Ellipse>
-                    <Button Content="EMPLEADOS" Name="bEmpleados" Grid.Row="2" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Margin="21,17,0,17"/>
+                    <Button Content="EMPLEADOS" Name="bEmpleados" Grid.Row="2" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Margin="21,17,0,17" Click="bEmpleados_Click"/>
 
                     <Ellipse HorizontalAlignment="Left" Height="57" Margin="10,6,0,0" VerticalAlignment="Top" Width="133" Fill="#FFF993FF" Grid.Row="3" Grid.ColumnSpan="2">
                         <UIElement.RenderTransform>
@@ -103,7 +103,7 @@
                             </TransformGroup>
                         </UIElement.RenderTransform>
                     </Ellipse>
-                    <Button Content="G-ECONÓMICA" Name="bEconomica" Grid.Row="3" VerticalAlignment="Top" Height="40" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" Margin="15,14,174,0" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
+                    <Button Content="G-ECONÓMICA" Name="bEconomica" Grid.Row="3" VerticalAlignment="Top" Height="40" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" Margin="15,14,174,0" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="bEconomica_Click"/>
                 </Grid>
             </TabItem>
 
@@ -124,29 +124,31 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid Name="dgProyectos" Grid.ColumnSpan="4" Margin="32,30,122,31" Grid.RowSpan="3" Grid.Row="2" SelectionChanged="DataGrid_SelectionChanged">
+                    <DataGrid Name="dgProyectos" Grid.ColumnSpan="4" Margin="32,30,122,31" Grid.RowSpan="3" Grid.Row="2" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Código Proyecto" Binding="{Binding CodigoProyecto}"/>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                            <DataGridTextColumn Header="Fecha Inicio" Binding="{Binding FechaInicio}"/>
-                            <DataGridTextColumn Header="Fecha Fin" Binding="{Binding FechaFin}"/>
+                            <DataGridTextColumn Header="Fecha Inicio" Binding="{Binding FechaInicio, StringFormat='dd/MM/yyyy'}"/>
+                            <DataGridTextColumn Header="Fecha Fin" Binding="{Binding FechaFin, StringFormat='dd/MM/yyyy'}"/>
+
                         </DataGrid.Columns>
-                    </DataGrid>                    
+                    </DataGrid>
+
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="4">
                         <Label Content="Código Proyecto" Grid.Row="1" Grid.Column="4"/>
-                        <TextBox x:Name="tbCodigo" Grid.Row="1" Grid.Column="4" Background="AliceBlue" Opacity="0.8" Width="130" Height="20"/>
+                        <TextBox x:Name="tbCodigo" Grid.Row="1" Grid.Column="4" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4">
                         <Label Content="Nombre"/>
-                        <TextBox x:Name="tbNombre" Background="AliceBlue" Opacity="0.8" Width="130" Height="20"/>
+                        <TextBox x:Name="tbNombre" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4">
                         <Label Content="Fecha Inicio"/>
-                        <TextBox x:Name="tbFechaInicio" Background="AliceBlue" Opacity="0.8" Width="130" Height="20"/>
+                        <DatePicker x:Name="dpFechaInicio" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="4">
                         <Label Content="Fecha Fin"/>
-                        <TextBox x:Name="tbFechaFin" Background="AliceBlue" Opacity="0.8" Width="130" Height="20"/>
+                        <DatePicker x:Name="dpFechaFin" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
                     </StackPanel>
                     <Image Source="./Images/palm_3086199.png" Grid.Column="4" Margin="89,-16,0,32" Grid.RowSpan="2" Opacity="0.3"/>
                     <Image Source="./Images/logotipo-ies-maestredecalatrava-1.png" Grid.Row="5" Grid.Column="0"/>
@@ -155,17 +157,17 @@
                         <Button Content="Modificar" Name="bModificar" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bModificar_Click"/>
                         <Button Content="Eliminar" x:Name="bEliminar" Width="120" Height="25" Background="#FFA20094" Click="bEliminar_Click"/>
                     </StackPanel>
-                    <TextBox Name="tbBuscador" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="350" Height="25" Margin="54,19,7,18"/>
+                    <TextBox Name="tbBuscador" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="350" Height="25" Margin="54,19,7,18" TextChanged="tbBuscador_TextChanged"/>
                 </Grid>
             </TabItem>
 
-            <TabItem Header="EMPLEADOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiEmpleados" Header="EMPLEADOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
 
-            <TabItem Header="G. ECONOMICA" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiGEconomica" Header="G. ECONOMICA" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
 
-            <TabItem Header="ESTADÍSTICAS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiEstadisticas" Header="ESTADÍSTICAS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
 
-            <TabItem Header="USUARIOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiUsuarios" Header="USUARIOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
             <Grid/>
         </TabControl>
     </Grid>
