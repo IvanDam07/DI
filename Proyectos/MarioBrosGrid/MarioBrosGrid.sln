@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pinocho", "Pinocho.csproj", "{BDD7A146-E213-449E-87B1-60A73AACE6CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarioBrosGrid", "MarioBrosGrid.csproj", "{99FF3EC0-6B43-4BF3-9040-73003D301685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BDD7A146-E213-449E-87B1-60A73AACE6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BDD7A146-E213-449E-87B1-60A73AACE6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BDD7A146-E213-449E-87B1-60A73AACE6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BDD7A146-E213-449E-87B1-60A73AACE6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FF3EC0-6B43-4BF3-9040-73003D301685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FF3EC0-6B43-4BF3-9040-73003D301685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FF3EC0-6B43-4BF3-9040-73003D301685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FF3EC0-6B43-4BF3-9040-73003D301685}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0A3780C5-8BD7-47CB-814C-829A6AC63B60}
+		SolutionGuid = {F0C9EB7D-8346-43A7-9A53-20A2FE96EACA}
 	EndGlobalSection
 EndGlobal

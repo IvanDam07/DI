@@ -126,10 +126,10 @@
                     </Grid.ColumnDefinitions>
                     <DataGrid Name="dgProyectos" Grid.ColumnSpan="4" Margin="32,30,122,31" Grid.RowSpan="3" Grid.Row="2" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Código Proyecto" Binding="{Binding CodigoProyecto}"/>
-                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                            <DataGridTextColumn Header="Fecha Inicio" Binding="{Binding FechaInicio, StringFormat='dd/MM/yyyy'}"/>
-                            <DataGridTextColumn Header="Fecha Fin" Binding="{Binding FechaFin, StringFormat='dd/MM/yyyy'}"/>
+                            <DataGridTextColumn Header="Código Proyecto" Binding="{Binding CodigoProyecto}" Width="*"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                            <DataGridTextColumn Header="Fecha Inicio" Binding="{Binding FechaInicio, StringFormat=d}" Width="*"/>
+                            <DataGridTextColumn Header="Fecha Fin" Binding="{Binding FechaFin, StringFormat=d}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -157,6 +157,10 @@
                         <Button Content="Eliminar" x:Name="bEliminar" Width="120" Height="25" Background="#FFA20094" Click="bEliminar_Click"/>
                     </StackPanel>
                     <TextBox Name="tbBuscador" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="350" Height="25" Margin="54,19,7,18" TextChanged="tbBuscador_TextChanged"/>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="3">
+                        <Button Content="Insertar" Name="bInsertar" Width="120" Height="25" Click="bInsertar_Click"/>
+                    </StackPanel>
                 </Grid>
             </TabItem>
 

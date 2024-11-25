@@ -11,8 +11,8 @@ namespace GESTPRO_IvanSobrinoCalzado.Control
 
         public Proyecto(string codigoProyecto, string nombre, DateTime fechaInicio, DateTime fechaFin)
         {
-            CodigoProyecto = codigoProyecto ?? throw new ArgumentNullException(nameof(codigoProyecto));
-            Nombre = nombre ?? string.Empty;
+            CodigoProyecto = codigoProyecto;
+            Nombre = nombre;
             FechaInicio = fechaInicio;
             FechaFin = fechaFin;
         }
