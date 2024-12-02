@@ -1,0 +1,79 @@
+﻿<Window x:Class="tpv.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tpv"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="90"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!-- Diseño barra inferior -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Total hoy: "/>
+            <TextBox Name="tbTotalHoy" Width="50"/>
+            <Label Content="Último ticket: "/>
+            <TextBox Name="tbUltimoTicket" Width="50"/>
+            <Label Content="Nº cuenta: "/>
+            <TextBox Name="tbNCuenta" Width="30"/>
+            <Label Content="Empleado: "/>
+            <TextBox Name="tbEmpleado" Width="100"/>
+            <Label Content="Fecha: " />
+            <TextBox Name="tbFecha" Width="80"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+            <!-- Aquí va la imagen de engranaje de ajustes -->
+        </StackPanel>
+        
+        <!-- Grid interno del grid principal -->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Name="bComa" Content="," Grid.Column="0" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bCero" Content="0" Grid.Column="1" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bCe" Content="C" Grid.Column="2" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bBorrar" Content="&lt;" Grid.Column="3" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bSalir" Content="Salir" Grid.Column="4" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bSiete" Content="7" Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bOcho" Content="8" Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bNueve" Content="9" Grid.Column="2" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
+                <Button Name="bUtilidades" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+                    <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\Engranajes2.png" Width="24" Height="24"/>
+                </Button>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
