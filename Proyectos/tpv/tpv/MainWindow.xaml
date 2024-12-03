@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:tpv"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="BorderBrush" Value="#FF2BBA68"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -33,9 +54,12 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
             <!-- Aquí va la imagen de engranaje de ajustes -->
         </StackPanel>
-        
+
         <!-- Grid interno del grid principal -->
         <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.Background>
+                <SolidColorBrush Color="#FF2BBA68" Opacity="0.5"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="70"/>
@@ -43,7 +67,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="130"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="0" Grid.Row="2">
@@ -61,18 +85,97 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Button Name="bComa" Content="," Grid.Column="0" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bCero" Content="0" Grid.Column="1" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bCe" Content="C" Grid.Column="2" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bBorrar" Content="&lt;" Grid.Column="3" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bSalir" Content="Salir" Grid.Column="4" Grid.Row="3" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bSiete" Content="7" Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bOcho" Content="8" Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bNueve" Content="9" Grid.Column="2" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
-                <Button Name="bUtilidades" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+                <Button Name="bComa" Content="," Grid.Column="0" Grid.Row="3" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bCero" Content="0" Grid.Column="1" Grid.Row="3" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bCe" Content="C" Grid.Column="2" Grid.Row="3" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bBorrar" Content="&lt;" Grid.Column="3" Grid.Row="3" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bSalir" Content="Salir" Grid.Column="4" Grid.Row="3" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bSiete" Content="7" Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bOcho" Content="8" Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bNueve" Content="9" Grid.Column="2" Grid.Row="2" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bUtilidades" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Background="White">
                     <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\Engranajes2.png" Width="24" Height="24"/>
                 </Button>
-                
+                <Button Name="bAbrirCajon" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Background="White">
+                    <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\CajaRegistradora.png" Width="24" Height="24"/>
+                </Button>
+                <Button Name="bCuatro" Content="4" Grid.Column="0" Grid.Row="1" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bCinco" Content="5" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bSeis" Content="6" Grid.Column="2" Grid.Row="1" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bUno" Content="1" Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bDos" Content="2" Grid.Column="1" Grid.Row="0" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bTres" Content="3" Grid.Column="2" Grid.Row="0" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bUnidades" Content="Und." Grid.Column="3" Grid.Row="0" FontWeight="Bold" FontSize="20" Background="White"/>
+                <Button Name="bPrecio" Content="Precio" Grid.Column="4" Grid.Row="0" FontWeight="Bold" FontSize="18" Background="White" BorderBrush="#FF2BBA68" BorderThickness="2"/>
+
+            </Grid>
+            <!--Botón cobrar-->
+            <Button Name="bCobrar" Content="Cobrar" Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFFF8D19"/>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+
+                <DataGrid Name="dgTicket" HorizontalAlignment="Center" Height="Auto" Width="Auto" Grid.Row="0" Margin="5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Artículo" Binding="{Binding Articulo}" Width="100"/>
+                        <DataGridTextColumn Header="Uds." Binding="{Binding Unidades}" Width="Auto"/>
+                        <DataGridTextColumn Header="Imp" Binding="{Binding Importe}" Width="Auto"/>
+                        <DataGridTextColumn Header="Dto %" Binding="{Binding Descuento}" Width="60"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="60"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Name="dgPrecio" Grid.Row="1" Margin="5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Uds." Binding="{Binding UnidadesTotales}" Width="Auto"/>
+                        <DataGridTextColumn Header="Precio" Binding="{Binding PrecioTotal}" Width="Auto"/>
+                        <DataGridTextColumn Header="Articulo" Binding="{Binding Articulos}" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Name="bAsignar" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Background="White">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\AgregarUsuario.png" Width="20" Height="20"/>
+                        <TextBlock Text="Asignar cliente" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Alias" Margin="5,0,5,0"/>
+                    <TextBox Name="tbAlias" Width="170" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Cliente" Margin="5,0,5,0"/>
+                    <TextBox Name="tbCliente" Width="160"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Socio" Margin="5,0,5,0"/>
+                    <TextBox Name="tbSocio" Width="20"/>
+                    <TextBlock Text="Nº Socio" Margin="5,0,5,0"/>
+                    <TextBox Name="tbNSocio" Width="50"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Cliente número" Margin="5,0,5,0"/>
+                    <TextBox Name="tbNumCliente" Width="50"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

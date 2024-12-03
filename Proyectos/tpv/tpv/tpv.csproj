@@ -100,5 +100,11 @@
   <ItemGroup>
     <Resource Include="Resources\Engranajes2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CajaRegistradora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AgregarUsuario.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
