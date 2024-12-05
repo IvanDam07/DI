@@ -51,8 +51,10 @@
             <Label Content="Fecha: " />
             <TextBox Name="tbFecha" Width="80"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-            <!-- Aquí va la imagen de engranaje de ajustes -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center">
+            <Button Name="bAjustes" Grid.Column="2" Grid.Row="1">
+                <Image Source="/Resources/engranaje.png" Width="24" Height="24"/>
+            </Button>
         </StackPanel>
 
         <!-- Grid interno del grid principal -->
@@ -94,10 +96,10 @@
                 <Button Name="bOcho" Content="8" Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20" Background="White"/>
                 <Button Name="bNueve" Content="9" Grid.Column="2" Grid.Row="2" FontWeight="Bold" FontSize="20" Background="White"/>
                 <Button Name="bUtilidades" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Background="White">
-                    <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\Engranajes2.png" Width="24" Height="24"/>
+                    <Image Source="/Resources/Engranajes2.png" Width="24" Height="24"/>
                 </Button>
                 <Button Name="bAbrirCajon" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Background="White">
-                    <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\CajaRegistradora.png" Width="24" Height="24"/>
+                    <Image Source="\Resources\CajaRegistradora.png" Width="24" Height="24"/>
                 </Button>
                 <Button Name="bCuatro" Content="4" Grid.Column="0" Grid.Row="1" FontWeight="Bold" FontSize="20" Background="White"/>
                 <Button Name="bCinco" Content="5" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="20" Background="White"/>
@@ -150,7 +152,7 @@
 
                 <Button Name="bAsignar" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Background="White">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="C:\Users\b15-12m\source\repos\tpv\tpv\Resources\AgregarUsuario.png" Width="20" Height="20"/>
+                        <Image Source="Resources\AgregarUsuario.png" Width="20" Height="20"/>
                         <TextBlock Text="Asignar cliente" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -177,6 +179,29 @@
                     <TextBox Name="tbNumCliente" Width="50"/>
                 </StackPanel>
             </Grid>
+            
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center">
+                <TextBlock Text="CATEGORÍAS" FontSize="20" FontWeight="Bold"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Name="spCategorias">
+                
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <StackPanel Orientation="Vertical">
+                <Button Name="bAnadirCategoria" Content="Añadir&#xa;categoría" VerticalAlignment="Center" Background="White"/>
+                <Button Name="bAnadirProducto" Content="Añadir&#xa;producto" VerticalAlignment="Center" Background="White"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
