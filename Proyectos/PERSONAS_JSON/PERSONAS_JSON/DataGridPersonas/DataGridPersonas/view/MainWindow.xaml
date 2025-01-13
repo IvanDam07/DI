@@ -1,0 +1,72 @@
+﻿<Window x:Class="DataGridPersonas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataGridPersonas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="0,0,582,261">
+            <Label x:Name="lblNombre" Content="Nombre"/>
+            <TextBox x:Name="txtNombre" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="lblEdad" Content="Edad"/>
+            <TextBox x:Name="txtEdad" TextWrapping="Wrap" Width="120"/>
+          
+        </StackPanel>
+        <Separator HorizontalAlignment="Left" Margin="194,201,0,0" VerticalAlignment="Top"/>
+        <StackPanel Margin="289,0,0,154">
+            <DataGrid Name="dgvPersonas" Height="280" Width="464" AutoGenerateColumns="False" SelectionChanged="dgvPeople_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding id}"/>
+                    <DataGridTextColumn Header="nombre" Binding="{Binding nombre}"/>
+                    <DataGridTextColumn Header="edad" Binding="{Binding edad}"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+
+        <WrapPanel Margin="0,343,10,10" HorizontalAlignment="Right" Width="740">
+
+            <Button Name="bntNew" Content="NEW" Click="bntNew_Click" Width="155" Height="37"
+                    Margin="0,0,100,0" Background="Aqua"/>
+
+            <Button Name="Save" Click="Save_Click" Height="37" Width="174" 
+                    RenderTransformOrigin="0.5,0.5" Content="SAVE" Margin="0,0,100,0" IsEnabled="True">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+            <Button Name="bntEliminar" Content="DEL" Height="32" IsEnabled="True" RenderTransformOrigin="0.5,0.5" Width="162" Click="bntEliminar_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+            <Button Name="btnModify" Content="MODIFY" Height="32" IsEnabled="True" RenderTransformOrigin="0.5,0.5" Width="162" Click="btnModify_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+        </WrapPanel>
+
+    </Grid>
+</Window>
