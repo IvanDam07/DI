@@ -55,30 +55,30 @@ internal class PersonasPersistance
     }
 
     public void insertPeople(Persona p) {
-        //DBBroker broker = DBBroker.obtenerAgente();
-        //broker.modifier("Insert into people (name,age) values ('"+ p.nombre +"',"+p.edad+")");
-        
-        //string jsonContent = File.ReadAllText(path);
-        //RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(jsonContent);
 
-        PersonaList.Add(p);
+        // Leer el contenido del archivo JSON
+        string jsonContent = File.ReadAllText(path);
 
-        RootObject rootObject = new RootObject { PersonaList = this.PersonaList };
+        // Deserializar el contenido JSON
+        RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(jsonContent);
 
-        string updatedJsonContent = JsonConvert.SerializeObject(
-            rootObject, Formatting.Indented);
+        // Validar que el objeto deserializado no sea nulo
+        if (rootObject == null || rootObject.PersonaList == null)
+        {
+            rootObject = new RootObject { PersonaList = new List<Persona>() };
+        }
 
+        // Añadir la nueva persona a la lista
+        rootObject.PersonaList.Add(p);
+
+        // Serializar el objeto actualizado a JSON
+        string updatedJsonContent = JsonConvert.SerializeObject(rootObject, Formatting.Indented);
+
+        // Guardar el contenido JSON actualizado en el archivo
         File.WriteAllText(path, updatedJsonContent);
 
-        if(p == null) 
-            throw new ArgumentNullException(nameof(p), "The person Object cannot be null");
-
-        PersonaList.Add(p);
-        var rootObjecy = new RootObject { PersonaList = PersonaList };
-
-        string jsonContent = JsonConvert.SerializeObject(rootObject, Formatting.Indented);
-
-        File.WriteAllText(path, jsonContent);
+        // También puedes añadir la nueva persona a la lista en memoria (si es necesario)
+        this.PersonaList.Add(p);
     }
 
 
@@ -96,13 +96,51 @@ internal class PersonasPersistance
 
     public void deletePeople(Persona p) {
         //DBBroker broker = DBBroker.obtenerAgente();
-       // broker.modifier("Delete from people where idPeople = " + p.id);
+        // broker.modifier("Delete from people where idPeople = " + p.id);
+
+        // Leer el contenido del archivo JSON
+        string jsonContent = File.ReadAllText(path);
+
+        // Deserializar el contenido JSON
+        RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(jsonContent);
+
+        // Validar que el objeto deserializado no sea nulo
+        if (rootObject == null || rootObject.PersonaList == null)
+        {
+            MessageBox.Show("El archivo JSON no contiene datos válidos.");
+            return;
+        }
+
+        // Buscar la persona por ID
+        Persona personaAEliminar = rootObject.PersonaList.FirstOrDefault(persona => persona.id == p.id);
+
+        if (personaAEliminar == null)
+        {
+            MessageBox.Show($"No se encontró ninguna persona con el ID {p.id}.");
+            return;
+        }
+
+        // Eliminar la persona de la lista
+        rootObject.PersonaList.Remove(personaAEliminar);
+
+        // Serializar el objeto actualizado a JSON
+        string updatedJsonContent = JsonConvert.SerializeObject(rootObject, Formatting.Indented);
+
+        // Guardar el contenido JSON actualizado en el archivo
+        File.WriteAllText(path, updatedJsonContent);
+
+        // Eliminar también de la lista en memoria si es necesario
+        this.PersonaList.RemoveAll(persona => persona.id == p.id);
+
+        MessageBox.Show($"Persona con ID {p.id} y nombre {p.nombre} eliminada con éxito.");
     }
 
     public void modifyPeople(Persona p)
     {
         //DBBroker broker = DBBroker.obtenerAgente();
         //broker.modifier("Update people set age = " + p.edad + ", name= '" + p.nombre + "' where idPeople = " + p.id);
+
+
     }
 
     class RootObject
