@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TabControl TabStripPlacement="Left">
+        <TabControl Name="MainTabControl" TabStripPlacement="Left">
             <TabItem Header="START">
                 <Grid Background="White">
                     <Grid.RowDefinitions>
@@ -50,7 +50,7 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="GAME">
+            <TabItem Header="GAME" Height="24" Margin="-2,-2,0,0" VerticalAlignment="Top">
                 <Grid>
                     <!-- Definición de las filas y columnas -->
                     <Grid.RowDefinitions>
@@ -92,6 +92,13 @@
                     </Grid>
 
                     <!-- Botón en la fila adicional -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="8" HorizontalAlignment="Center" Margin="10">
+                        <Button Name="btnUp" Content="Up" Width="50" Click="btnUp_Click" />
+                        <Button Name="btnDown" Content="Down" Width="50" Click="btnDown_Click" />
+                        <Button Name="btnLeft" Content="Left" Width="50" Click="btnLeft_Click" />
+                        <Button Name="btnRight" Content="Right" Width="50" Click="btnRight_Click" />
+                    </StackPanel>
+
                     <Button Name="btnPlay" Content="PLAY" Grid.Row="8" HorizontalAlignment="Right" Margin="10" Width="90" Height="20" Click="btnPlay_Click"/>
                 </Grid>
             </TabItem>
