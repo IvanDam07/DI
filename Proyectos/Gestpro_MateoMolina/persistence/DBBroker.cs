@@ -10,7 +10,7 @@ namespace Gestpro_MateoMolina.persistence
     {
         private static DBBroker _instancia;
         private static MySql.Data.MySqlClient.MySqlConnection conexion;
-        private const String cadenaConexion = "server=127.0.0.1;database=gestpro;uid=root;pwd=root";
+        private const String cadenaConexion = "server=localhost;database=proyectoempleado;uid=root;pwd=toor";
         public DBBroker()
         {
             DBBroker.conexion = new MySql.Data.MySqlClient.MySqlConnection(cadenaConexion);

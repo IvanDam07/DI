@@ -164,13 +164,145 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Name="tiEmpleados" Header="EMPLEADOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiEmpleados" Header="EMPLEADOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-            <TabItem Name="tiGEconomica" Header="G. ECONOMICA" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBox x:Name="tbBuscarEmpleado" Margin="30,10,30,0" Height="40"/>
+                        <DataGrid x:Name="dgEmpleados" Margin="20,10,20,0" Height="150">
+
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2">
+                        <Label Content="Nombre"/>
+                        <TextBox x:Name="tbNombreEmpleado" Margin="10,0,10,0" Height="25"/>
+                        <Label Content="Apellidos"/>
+                        <TextBox x:Name="tbApellidosEmpleado" Margin="10,0,10,0" Height="25"/>
+                        <Label Content="ROL"/>
+                        <ComboBox x:Name="cboxRolEmpleado" Margin="10,0,10,0" Height="25">
+                            <ComboBoxItem Tag="1" Content="PROGRAMADOR JUNIOR"/>
+                            <ComboBoxItem Tag="2" Content="PROGRAMADOR"/>
+                            <ComboBoxItem Tag="3" Content="PROGRAMADOR SENIOR"/>
+                            <ComboBoxItem Tag="4" Content="JEFE PROYECTO"/>
+                        </ComboBox>
+                        <Label Content="CSR"/>
+                        <TextBox x:Name="tbCSREmpleado" Margin="10,0,10,0" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="0">
+                        <CheckBox Content="USUARIO YA REGISTRADO" x:Name="cbRegistrado" Margin="10,10,10,10"/>
+                        <CheckBox Content="USUARIO NO REGISTRADO" x:Name="cbNoRegistrado" Margin="10,0,10,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                        <Button x:Name="bAnadirEmpleado" Content="Añadir" Margin="10,10,10,10" Height="30" Width="70" Background="#FFA20094" Click="bAnadirEmpleado_Click"/>
+                        <Button x:Name="bModificarEmpleado" Content="Modificar" Margin="10,10,10,10" Height="30" Width="70" Background="#FFA20094" Click="bModificarEmpleado_Click"/>
+                        <Button x:Name="bEliminarEmpleado" Content="Eliminar" Margin="10,10,10,10" Height="30" Width="70" Background="#FFA20094" Click="bEliminarEmpleado_Click"/>
+                    </StackPanel>
+                    <ComboBox Name="cboxSeleccionarUsuario" Grid.Column="0" Grid.Row="3" Margin="10,10,10,10" Height="35" ItemsSource="{Binding Usuarios}">
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                            <Label Content="Usuario" HorizontalAlignment="Center"/>
+                            <TextBox x:Name="tbUsuarioEmpleado" Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                            <Label Content="Password" HorizontalAlignment="Center"/>
+                            <TextBox x:Name="tbPasswordEmpleado" Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                            <Button Content="Registrar y recargar" Name="bRegistrarRecargarEmpleado" Width="125" Height="30" Background="#FFA20094"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="2" Margin="199,25,0,25" Opacity="0.3" />
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="3" Grid.Column="0" Margin="0,52,156,-9"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tiGEconomica" Header="G. ECONOMICA" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid x:Name="dgEconomica" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Width="400" Height="200">
+
+                    </DataGrid>
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Label Content="Proyecto"/>
+                        <ComboBox x:Name="cboxProyecto" Height="30" Width="200"/>
+                        <Label Content="Empleado"/>
+                        <ComboBox Name="cboxEmpleado" Height="30" Width="200"/>
+                        <Label Content="Fecha"/>
+                        <DatePicker Name="dpFecha" Width="200"/>
+                        <Label Content="Horas"/>
+                        <TextBox x:Name="tbHoras" Height="30" Width="200"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                        <Button x:Name="bImputarHoras" Content="Imputar horas" Width="100" Height="40" Margin="10" Background="#FFA20094"/>
+                        <Button x:Name="bModificarEconomica" Content="Modificar" Width="100" Height="40" Margin="10" Background="#FFA20094" />
+                        <Button x:Name="bEliminarEconomica" Content="Eliminar" Width="100" Height="40" Margin="10" Background="#FFA20094" />
+                    </StackPanel>
+
+                    <Image Source="/View/palm_3086199.png" Grid.Column="2" Margin="199,-22,0,72" Opacity="0.3" />
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="2" Grid.Column="0" Margin="0,46,100,-22"/>
+                </Grid>
+            </TabItem>
 
             <TabItem Name="tiEstadisticas" Header="ESTADÍSTICAS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
 
-            <TabItem Name="tiUsuarios" Header="USUARIOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiUsuarios" Header="USUARIOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dgUsuarios" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="50,75,50,10">
+                        <!--<DataGrid.Columns>
+                            <DataGridTextColumn Header="Usuario" Binding="{Binding UsuarioNombre}" Width="*"/>
+                            <DataGridTextColumn Header="Contraseña" Binding="{Binding ContrasenaUsuario}" Width="*"/>
+                        </DataGrid.Columns>-->
+                    </DataGrid>
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" VerticalAlignment="Center">
+                        <Label Content="Usuario" FontSize="14" FontWeight="Bold" />
+                        <TextBox x:Name="tbUsuario" Background="White" Margin="0,0,10,0" Height="20"/>
+                        <Label Content="Password" FontWeight="Bold" FontSize="14"/>
+                        <TextBox x:Name="tbPassword" Background="White" Margin="0,0,10,0" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Button x:Name="bAlta" Content="Dar de alta" Margin="0,0,20,0" Height="25" Width="150" Background="#FFA20094" Click="bAlta_Click"/>
+                        <Button x:Name="bEliminarUsuario" Content="Eliminar" Margin="0,0,20,0" Height="25" Width="150" Background="#FFA20094" Click="bEliminarUsuario_Click"/>
+                        <Button x:Name="bActualizarPass" Content="Actualizar contraseña" Margin="0,0,20,0" Height="25" Width="150" Background="#FFA20094" Click="bActualizarPass_Click"/>
+                    </StackPanel>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="3" Margin="96,-4,0,47" Grid.RowSpan="3" Opacity="0.3"/>
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="3" Grid.Column="0" Margin="0,46,56,-14"/>
+                </Grid>
+            </TabItem>
             <Grid/>
         </TabControl>
     </Grid>
