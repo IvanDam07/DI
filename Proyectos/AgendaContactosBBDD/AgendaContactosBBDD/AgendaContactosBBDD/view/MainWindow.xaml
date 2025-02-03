@@ -1,0 +1,29 @@
+﻿<Window x:Class="AgendaContactosBBDD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgendaContactosBBDD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgContactos" AutoGenerateColumns="False" Margin="418,26,10,26">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre del contacto" Binding="{Binding Nombre}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Telefono del contacto" Binding="{Binding Telefono}" ></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="25,26,0,0" TextWrapping="Wrap" Text="Indica el nombre del contacto" VerticalAlignment="Top" Height="20" Width="180" Background="Pink" TextAlignment="Center"/>
+        <TextBox x:Name="tbNombreContacto" HorizontalAlignment="Left" Margin="62,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" Height="20"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="25,119,0,0" TextWrapping="Wrap" Text="Indica el telefono del contacto" VerticalAlignment="Top" Height="20" Width="180" Background="Purple" Foreground="White" TextAlignment="Center" />
+        <TextBox x:Name="tbTelefonoContacto" HorizontalAlignment="Left" Margin="58,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" Height="20"/>
+
+        <Button Name="btnAgregar" Content="Agregar contacto" HorizontalAlignment="Left" Margin="25,206,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="btnAgregar_Click"/>
+        <Button Name="btnBorrar" Content="Borrar contacto" HorizontalAlignment="Left" Margin="25,277,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="btnBorrar_Click"/>
+        <Button Name="btnModificar" Content="Modificar contacto" HorizontalAlignment="Left" Margin="25,347,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="btnModificar_Click"/>
+        <Image HorizontalAlignment="Left" Height="206" Margin="193,198,0,0" VerticalAlignment="Top" Width="199" Source="../images/telefono.jpg" />
+
+    </Grid>
+</Window>

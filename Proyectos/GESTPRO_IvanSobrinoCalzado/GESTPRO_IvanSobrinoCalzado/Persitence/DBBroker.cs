@@ -13,7 +13,7 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
     {
         private static DBBroker _instancia;
         private static MySqlConnection conexion;
-        private static readonly string cadenaConexion = "server=localhost;database=proyectoempleado;uid=root;pwd=root"; //toor en clase
+        private const string cadenaConexion = "server=localhost;database=proyectoempleado;uid=root;pwd=toor"; //toor en clase
 
         private DBBroker()
         {
@@ -22,11 +22,11 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
 
         public static DBBroker ObtenerAgente()
         {
-            if (_instancia == null)
+            if (DBBroker._instancia == null)
             {
-                _instancia = new DBBroker();
+                DBBroker._instancia = new DBBroker();
             }
-            return _instancia;
+            return DBBroker._instancia;
         }
 
         public List<List<object>> Leer(string sql)
@@ -63,6 +63,27 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
             return resultado;
         }
 
+        public List<Object> leer(String sql)
+        {
+            List<Object> resultado = new List<object>();
+            List<Object> fila;
+            int i;
+            MySql.Data.MySqlClient.MySqlDataReader reader;
+            MySql.Data.MySqlClient.MySqlCommand com = new MySql.Data.MySqlClient.MySqlCommand(sql, DBBroker.conexion);
+            Conectar();
+            reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                fila = new List<Object>();
+                for (i = 0; i <= reader.FieldCount - 1; i++)
+                {
+                    fila.Add(reader[i].ToString());
+                }
+                resultado.Add(fila);
+            }
+            Desconectar();
+            return resultado;
+        }
         public int Modificar(string sql)
         {
             int filasAfectadas = 0;
@@ -146,7 +167,14 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
                 throw new Exception($"Error al ejecutar la consulta: {ex.Message}");
             }
         }
-
-
+        public int modifier(String sql)
+        {
+            MySql.Data.MySqlClient.MySqlCommand com = new MySql.Data.MySqlClient.MySqlCommand(sql, DBBroker.conexion);
+            int resultado;
+            Conectar();
+            resultado = com.ExecuteNonQuery();
+            Desconectar();
+            return resultado;
+        }
     }
 }

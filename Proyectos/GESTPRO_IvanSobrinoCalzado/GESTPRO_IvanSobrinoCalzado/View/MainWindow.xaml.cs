@@ -3,6 +3,8 @@ using GESTPRO_IvanSobrinoCalzado.Persitence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,13 +15,22 @@ namespace GESTPRO_IvanSobrinoCalzado
     {
         private List<Proyecto> proyectos;
         private DBBroker dbBroker;
+        private List<Usuario> usuarios;
+        private List<Empleado> empleados;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            dbBroker = DBBroker.ObtenerAgente();
-            CargarProyectosDesdeBD();
+            //dbBroker = DBBroker.ObtenerAgente();
+            //CargarProyectosDesdeBD();
+
+            CargarUsuariosDesdeBD();
+
+            Usuario usuario = new Usuario();
+            usuario.readUsuarios();
+
+            dgUsuarios.ItemsSource = usuario.getListaUsuarios();
         }
 
         private void CargarProyectosDesdeBD()
@@ -28,7 +39,7 @@ namespace GESTPRO_IvanSobrinoCalzado
             dgProyectos.ItemsSource = proyectos;
             dgProyectos.Items.Refresh();
         }
-
+        
         private List<Proyecto> ObtenerProyectosDeBD()
         {
             string query = "SELECT CODIGOPROY, NOMBREPROY, FECHAINICIO, FECHAFIN FROM proyecto";
@@ -299,5 +310,160 @@ namespace GESTPRO_IvanSobrinoCalzado
             CargarProyectosDesdeBD();
         }
 
+        /**--------------------------------------------------------------------------------------
+         * 
+         * 
+         * 
+         * USUARIOS
+         * 
+         * 
+         * */
+
+        private void bAlta_Click(object sender, RoutedEventArgs e)
+        {
+            if (!bModificar.Content.Equals("Actualizar"))
+            {
+
+                if (MessageBox.Show("Do you want to add this user?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    string pass = tbPassword.Text;
+                    //Aquí iría encriptamiento
+                    Usuario u = new Usuario(tbUsuario.Text, tbPassword.Text);
+                    u.insert();
+                    u.last();
+
+                    ((List<Usuario>)dgUsuarios.ItemsSource).Add(u);
+                    dgUsuarios.Items.Refresh();
+                }
+            }
+            else
+            {
+                Usuario u = (Usuario)dgUsuarios.SelectedItem;
+
+                List<Usuario> listUsuarios = (List<Usuario>)dgUsuarios.ItemsSource;
+
+                listUsuarios[dgUsuarios.SelectedIndex].nombre = tbNombre.Text;
+                listUsuarios[dgUsuarios.SelectedIndex].password = tbPassword.Text;
+
+                int idU = u.id;
+                String nombre = u.nombre;
+                String password = u.password;
+
+                Usuario us = new Usuario(idU, nombre, password);
+
+                us.update();
+
+                dgUsuarios.Items.Refresh();
+
+            }
+        }
+
+        private void bEliminarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Do you want to remove this user?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Usuario usuario = (Usuario)dgUsuarios.SelectedItem;
+
+                usuario.delete();
+                List<Usuario> lstUsuario = (List<Usuario>)dgUsuarios.ItemsSource;
+                lstUsuario.Remove(usuario);
+                dgUsuarios.Items.Refresh();
+                dgUsuarios.ItemsSource = lstUsuario;
+                start();
+            } 
+        }
+
+        private void bActualizarPass_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioModificar = (Usuario)dgUsuarios.SelectedItem;
+
+            tbUsuario.Text = usuarioModificar.Nombre.ToString();
+            tbPassword.Text = usuarioModificar.Password.ToString();
+
+            tbUsuario.IsEnabled = false;
+            bAlta.IsEnabled = false;
+            bEliminarUsuario.IsEnabled = false;
+
+            bModificar.Content = "Actualizar";
+        }
+
+        private void start()
+        {
+            tbUsuario.Text = "";
+            tbPassword.Text = "";
+
+            dgUsuarios.SelectedItems.Clear();
+        }
+
+        private string encriptarMD5(string text)
+        {
+        using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(text);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        
+        }
+
+
+        /**
+         * 
+         * EMPLEADOS
+         * 
+         */
+
+
+        private void bAnadirEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bModificarEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bEliminarEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /**
+         * Método que cargar los usuarios para mostrarlos en una ComboBox
+         */
+        private void CargarUsuariosDesdeBD()
+        {            
+            Usuario usuario = new Usuario();
+            usuarios = usuario.getListaUsuarios();
+            
+            cboxSeleccionarUsuario.ItemsSource = usuarios;
+            cboxSeleccionarUsuario.Items.Refresh();
+        }
+
+        private void RealizarBusquedaEmpleado()
+        {
+            //string searchText = tbBuscarEmpleado.Text.Trim().ToLower();
+
+            //if (string.IsNullOrWhiteSpace(searchText))
+            //{
+            //    dgEmpleados.ItemsSource = empleados;
+            //}
+            //else
+            //{
+            //    var filteredList = proyectos.Where(proyecto =>
+            //        proyecto != null &&
+            //        (
+            //            proyecto.CodigoProyecto.ToLower().Contains(searchText) ||
+            //            (proyecto.Nombre?.ToLower().Contains(searchText) ?? false) ||
+            //            proyecto.FechaInicio.ToString("dd/MM/yyyy").Contains(searchText) ||
+            //            proyecto.FechaFin.ToString("dd/MM/yyyy").Contains(searchText)
+            //        )).ToList();
+
+            //    dgProyectos.ItemsSource = filteredList;
+            //}
+
+            //dgProyectos.Items.Refresh();
+        }
     }
 }
