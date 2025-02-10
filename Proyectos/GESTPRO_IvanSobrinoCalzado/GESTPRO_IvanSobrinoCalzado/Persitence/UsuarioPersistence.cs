@@ -52,11 +52,19 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
             broker.Modificar("Delete from usuario where IDUSUARIO = " + u.id);
         }
 
+        //public void modifyUsuario(Usuario u)
+        //{
+        //    DBBroker broker = DBBroker.ObtenerAgente();
+
+        //    broker.modifier("Update usuario set NOMBREUSUARIO = " + u.nombre + ", PASSUSUARIO = " + u.password + " where IDUSUARIO = " + u.id);
+        //}
         public void modifyUsuario(Usuario u)
         {
             DBBroker broker = DBBroker.ObtenerAgente();
 
-            broker.modifier("Update usuario set NOMBREUSUARIO = " + u.nombre + ", PASSUSUARIO = " + u.password + " where IDUSUARIO = " + u.id);
+            string query = $"UPDATE usuario SET NOMBREUSUARIO = '{u.Nombre}', PASSUSUARIO = '{u.Password}' WHERE IDUSUARIO = {u.Id}";
+
+            broker.Modificar(query);
         }
 
         public int lastId(Usuario u)

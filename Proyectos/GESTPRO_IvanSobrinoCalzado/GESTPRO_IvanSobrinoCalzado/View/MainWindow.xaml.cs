@@ -319,42 +319,95 @@ namespace GESTPRO_IvanSobrinoCalzado
          * 
          * */
 
+        //private void bAlta_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (!bModificar.Content.Equals("Actualizar"))
+        //    {
+
+        //        if (MessageBox.Show("Do you want to add this user?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+        //        {
+        //            string pass = tbPassword.Text;
+        //            //Aquí iría encriptamiento
+        //            Usuario u = new Usuario(tbUsuario.Text, tbPassword.Text);
+        //            u.insert();
+        //            u.last();
+
+        //            ((List<Usuario>)dgUsuarios.ItemsSource).Add(u);
+        //            dgUsuarios.Items.Refresh();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Usuario u = (Usuario)dgUsuarios.SelectedItem;
+
+        //        List<Usuario> listUsuarios = (List<Usuario>)dgUsuarios.ItemsSource;
+
+        //        listUsuarios[dgUsuarios.SelectedIndex].nombre = tbNombre.Text;
+        //        listUsuarios[dgUsuarios.SelectedIndex].password = tbPassword.Text;
+
+        //        int idU = u.id;
+        //        String nombre = u.nombre;
+        //        String password = u.password;
+
+        //        Usuario us = new Usuario(idU, nombre, password);
+
+        //        us.update();
+
+        //        dgUsuarios.Items.Refresh();
+
+        //    }
+        //}
         private void bAlta_Click(object sender, RoutedEventArgs e)
         {
-            if (!bModificar.Content.Equals("Actualizar"))
+            if (bAlta.Tag != null && bAlta.Tag.ToString() == "ActualizarPass")
             {
-
-                if (MessageBox.Show("Do you want to add this user?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                // Modo actualización de contraseña
+                if (string.IsNullOrWhiteSpace(tbPassword.Text))
                 {
-                    string pass = tbPassword.Text;
-                    //Aquí iría encriptamiento
-                    Usuario u = new Usuario(tbUsuario.Text, tbPassword.Text);
-                    u.insert();
-                    u.last();
-
-                    ((List<Usuario>)dgUsuarios.ItemsSource).Add(u);
-                    dgUsuarios.Items.Refresh();
+                    MessageBox.Show("Introduce una nueva contraseña.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
                 }
+
+                Usuario usuarioModificar = (Usuario)dgUsuarios.SelectedItem;
+
+                // Encriptar la contraseña antes de guardarla
+                //string nuevaPassword = encriptarMD5(tbPassword.Text);
+
+                //usuarioModificar.Password = nuevaPassword;
+                usuarioModificar.Password = tbPassword.Text; // No se encripta
+                usuarioModificar.update();  // Actualiza en la base de datos
+
+                dgUsuarios.Items.Refresh(); // Refrescar la tabla de usuarios
+
+                MessageBox.Show("Contraseña actualizada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                // Restablecer el formulario
+                tbUsuario.Text = "";
+                tbPassword.Text = "";
+                tbUsuario.IsEnabled = true;
+                bAlta.Content = "Dar de alta";
+                bAlta.Tag = null;
+                bEliminarUsuario.IsEnabled = true;
+
+                return;
             }
-            else
+
+            // Código original para dar de alta a un usuario nuevo
+            if (MessageBox.Show("¿Quieres añadir este usuario?", "Confirmación", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Usuario u = (Usuario)dgUsuarios.SelectedItem;
+                //string pass = tbPassword.Text;
+                //string passEncriptada = encriptarMD5(pass);  // Encriptar antes de insertar
 
-                List<Usuario> listUsuarios = (List<Usuario>)dgUsuarios.ItemsSource;
+                //Usuario u = new Usuario(tbUsuario.Text, passEncriptada);
+                //u.insert();
+                //u.last();
 
-                listUsuarios[dgUsuarios.SelectedIndex].nombre = tbNombre.Text;
-                listUsuarios[dgUsuarios.SelectedIndex].password = tbPassword.Text;
+                Usuario u = new Usuario(tbUsuario.Text, tbPassword.Text); // No se encripta
+                u.insert();
+                u.last();
 
-                int idU = u.id;
-                String nombre = u.nombre;
-                String password = u.password;
-
-                Usuario us = new Usuario(idU, nombre, password);
-
-                us.update();
-
+                ((List<Usuario>)dgUsuarios.ItemsSource).Add(u);
                 dgUsuarios.Items.Refresh();
-
             }
         }
 
@@ -373,18 +426,35 @@ namespace GESTPRO_IvanSobrinoCalzado
             } 
         }
 
+        //private void bActualizarPass_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Usuario usuarioModificar = (Usuario)dgUsuarios.SelectedItem;
+
+        //    tbUsuario.Text = usuarioModificar.Nombre.ToString();
+        //    tbPassword.Text = usuarioModificar.Password.ToString();
+
+        //    tbUsuario.IsEnabled = false;
+        //    bAlta.IsEnabled = false;
+        //    bEliminarUsuario.IsEnabled = false;
+
+        //    bModificar.Content = "Actualizar";
+        //}
         private void bActualizarPass_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuarioModificar = (Usuario)dgUsuarios.SelectedItem;
 
-            tbUsuario.Text = usuarioModificar.Nombre.ToString();
-            tbPassword.Text = usuarioModificar.Password.ToString();
+            if (usuarioModificar == null)
+            {
+                MessageBox.Show("Selecciona un usuario para actualizar la contraseña.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
-            tbUsuario.IsEnabled = false;
-            bAlta.IsEnabled = false;
-            bEliminarUsuario.IsEnabled = false;
+            tbUsuario.Text = usuarioModificar.Nombre;
+            tbPassword.Text = ""; // Limpiar el campo de contraseña para que se introduzca una nueva
 
-            bModificar.Content = "Actualizar";
+            tbUsuario.IsEnabled = false;  // Deshabilitar para que no se cambie el usuario
+            bAlta.Content = "Actualizar"; // Cambiar el texto del botón para indicar actualización
+            bAlta.Tag = "ActualizarPass"; // Marcar el botón con una etiqueta especial
         }
 
         private void start()
@@ -416,28 +486,140 @@ namespace GESTPRO_IvanSobrinoCalzado
 
         private void bAnadirEmpleado_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbNombreEmpleado.Text) ||
+                string.IsNullOrWhiteSpace(tbApellidosEmpleado.Text) ||
+                string.IsNullOrWhiteSpace(tbCSREmpleado.Text) ||
+                cboxRolEmpleado.SelectedItem == null ||
+                cboxSeleccionarUsuario.SelectedItem == null)
+            {
+                MessageBox.Show("Debe completar todos los campos antes de añadir un empleado.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
+            if (!float.TryParse(tbCSREmpleado.Text, out float csr))
+            {
+                MessageBox.Show("El campo CSR debe ser un número válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            Usuario usuarioSeleccionado = (Usuario)cboxSeleccionarUsuario.SelectedItem;
+            ComboBoxItem rolSeleccionado = (ComboBoxItem)cboxRolEmpleado.SelectedItem;
+            int idRol = Convert.ToInt32(rolSeleccionado.Tag);
+
+            Empleado nuevoEmpleado = new Empleado(tbNombreEmpleado.Text, tbApellidosEmpleado.Text, csr, usuarioSeleccionado.Id, idRol);
+            nuevoEmpleado.insert();
+
+            empleados.Add(nuevoEmpleado);
+            dgEmpleados.Items.Refresh();
+
+            MessageBox.Show("Empleado añadido correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // Limpiar los campos
+            tbNombreEmpleado.Clear();
+            tbApellidosEmpleado.Clear();
+            tbCSREmpleado.Clear();
+            cboxRolEmpleado.SelectedIndex = -1;
+            cboxSeleccionarUsuario.SelectedIndex = -1;
         }
 
         private void bModificarEmpleado_Click(object sender, RoutedEventArgs e)
         {
+            Empleado empleadoSeleccionado = (Empleado)dgEmpleados.SelectedItem;
 
+            if (empleadoSeleccionado == null)
+            {
+                MessageBox.Show("Seleccione un empleado para modificar.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(tbNombreEmpleado.Text) ||
+                string.IsNullOrWhiteSpace(tbApellidosEmpleado.Text) ||
+                string.IsNullOrWhiteSpace(tbCSREmpleado.Text) ||
+                cboxRolEmpleado.SelectedItem == null ||
+                cboxSeleccionarUsuario.SelectedItem == null)
+            {
+                MessageBox.Show("Debe completar todos los campos antes de modificar un empleado.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!float.TryParse(tbCSREmpleado.Text, out float csr))
+            {
+                MessageBox.Show("El campo CSR debe ser un número válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            Usuario usuarioSeleccionado = (Usuario)cboxSeleccionarUsuario.SelectedItem;
+            ComboBoxItem rolSeleccionado = (ComboBoxItem)cboxRolEmpleado.SelectedItem;
+            int idRol = Convert.ToInt32(rolSeleccionado.Tag);
+
+            empleadoSeleccionado.Nombre = tbNombreEmpleado.Text;
+            empleadoSeleccionado.Apellido = tbApellidosEmpleado.Text;
+            empleadoSeleccionado.Csr = csr;
+            empleadoSeleccionado.IdUsuario = usuarioSeleccionado.Id;
+            empleadoSeleccionado.IdRol = idRol;
+
+            empleadoSeleccionado.update();
+
+            dgEmpleados.Items.Refresh();
+
+            MessageBox.Show("Empleado modificado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // Limpiar los campos
+            tbNombreEmpleado.Clear();
+            tbApellidosEmpleado.Clear();
+            tbCSREmpleado.Clear();
+            cboxRolEmpleado.SelectedIndex = -1;
+            cboxSeleccionarUsuario.SelectedIndex = -1;
         }
 
         private void bEliminarEmpleado_Click(object sender, RoutedEventArgs e)
         {
+            Empleado empleadoSeleccionado = (Empleado)dgEmpleados.SelectedItem;
 
+            if (empleadoSeleccionado == null)
+            {
+                MessageBox.Show("Seleccione un empleado para eliminar.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("¿Está seguro de que desea eliminar este empleado?", "Confirmación", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                empleadoSeleccionado.delete();
+                empleados.Remove(empleadoSeleccionado);
+                dgEmpleados.Items.Refresh();
+
+                MessageBox.Show("Empleado eliminado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
-        /**
-         * Método que cargar los usuarios para mostrarlos en una ComboBox
-         */
+        private void bRegistrarRecargarEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbUsuarioEmpleado.Text) || string.IsNullOrWhiteSpace(tbPasswordEmpleado.Text))
+            {
+                MessageBox.Show("Debe ingresar un nombre de usuario y contraseña.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            Usuario nuevoUsuario = new Usuario(tbUsuarioEmpleado.Text, tbPasswordEmpleado.Text);
+            nuevoUsuario.insert();
+
+            MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // Recargar el ComboBox de usuarios
+            CargarUsuariosDesdeBD();
+
+            tbUsuarioEmpleado.Clear();
+            tbPasswordEmpleado.Clear();
+        }
+
         private void CargarUsuariosDesdeBD()
-        {            
+        {
             Usuario usuario = new Usuario();
             usuarios = usuario.getListaUsuarios();
-            
+
             cboxSeleccionarUsuario.ItemsSource = usuarios;
+            cboxSeleccionarUsuario.DisplayMemberPath = "Nombre";  // Mostrar nombres de usuario en el ComboBox
+            cboxSeleccionarUsuario.SelectedValuePath = "Id";      // Guardar el ID del usuario seleccionado
             cboxSeleccionarUsuario.Items.Refresh();
         }
 
