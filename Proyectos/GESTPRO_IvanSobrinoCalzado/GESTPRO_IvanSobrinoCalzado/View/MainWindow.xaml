@@ -266,7 +266,15 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Name="tiEstadisticas" Header="ESTADÍSTICAS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF"/>
+            <TabItem Name="tiEstadisticas" Header="ESTADÍSTICAS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid>
+                    <Button x:Name="bMostrarInforme" Content="Mostrar informe" Width="110" Height="35" Margin="342,26,233,307"/>
+                    <Image Source="/View/palm_3086199.png" Margin="627,-5,10,295" Opacity="0.3" />
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Column="0" Margin="583,328,10,5"/>
+                    <ComboBox Name="cbInformes" Width="130" Height="25" Margin="127,31,428,312"/>
+                    <!--Aquí va <Viewer: CrystalReportsViewer Name="visorCoste"/> MIRAR cómo se añade-->
+                </Grid>
+            </TabItem>
 
             <TabItem Name="tiUsuarios" Header="USUARIOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
                 <Grid Background="#FFFFE8D0">

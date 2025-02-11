@@ -2,6 +2,7 @@
 using GESTPRO_IvanSobrinoCalzado.Persitence;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -11,13 +12,41 @@ using System.Windows.Input;
 
 namespace GESTPRO_IvanSobrinoCalzado
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// The proyectos
+        /// </summary>
         private List<Proyecto> proyectos;
+        /// <summary>
+        /// The database broker
+        /// </summary>
         private DBBroker dbBroker;
+        /// <summary>
+        /// The usuarios
+        /// </summary>
         private List<Usuario> usuarios;
+        /// <summary>
+        /// The empleados
+        /// </summary>
         private List<Empleado> empleados;
 
+        /// <summary>
+        /// The tabla coste proyecto
+        /// </summary>
+        DataTable tablaCosteProyecto;
+        /// <summary>
+        /// The tabla number perfiles
+        /// </summary>
+        DataTable tablaNumPerfiles;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow" /> class.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -33,13 +62,20 @@ namespace GESTPRO_IvanSobrinoCalzado
             dgUsuarios.ItemsSource = usuario.getListaUsuarios();
         }
 
+        /// <summary>
+        /// Cargars the proyectos desde bd.
+        /// </summary>
         private void CargarProyectosDesdeBD()
         {
             proyectos = ObtenerProyectosDeBD();
             dgProyectos.ItemsSource = proyectos;
             dgProyectos.Items.Refresh();
         }
-        
+
+        /// <summary>
+        /// Obteners the proyectos de bd.
+        /// </summary>
+        /// <returns></returns>
         private List<Proyecto> ObtenerProyectosDeBD()
         {
             string query = "SELECT CODIGOPROY, NOMBREPROY, FECHAINICIO, FECHAFIN FROM proyecto";
@@ -59,31 +95,61 @@ namespace GESTPRO_IvanSobrinoCalzado
             return listaProyectos;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bProyectos control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bProyectos_Click(object sender, RoutedEventArgs e)
         {
             tiProyecto.IsSelected = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bEstadistica control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bEstadistica_Click(object sender, RoutedEventArgs e)
         {
             tiEstadisticas.IsSelected = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bEmpleados control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bEmpleados_Click(object sender, RoutedEventArgs e)
         {
             tiEmpleados.IsSelected = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bUsuarios control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bUsuarios_Click(object sender, RoutedEventArgs e)
         {
             tiUsuarios.IsSelected = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bEconomica control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bEconomica_Click(object sender, RoutedEventArgs e)
         {
             tiGEconomica.IsSelected = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bAnadir control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bAnadir_Click(object sender, RoutedEventArgs e)
         {
             if (proyectos.Any(p => p.CodigoProyecto == tbCodigo.Text))
@@ -129,6 +195,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the bModificar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bModificar_Click(object sender, RoutedEventArgs e)
         {
             var proyectoSeleccionado = dgProyectos.SelectedItem as Proyecto;
@@ -174,6 +245,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the bEliminar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bEliminar_Click(object sender, RoutedEventArgs e)
         {
             var proyectoSeleccionado = dgProyectos.SelectedItem as Proyecto;
@@ -200,6 +276,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event of the DataGrid control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs" /> instance containing the event data.</param>
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var proyectoSeleccionado = dgProyectos.SelectedItem as Proyecto;
@@ -213,11 +294,21 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the tbBuscador control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void tbBuscador_TextChanged(object sender, TextChangedEventArgs e)
         {
             RealizarBusqueda();
         }
 
+        /// <summary>
+        /// Handles the KeyDown event of the tbBuscador control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyEventArgs" /> instance containing the event data.</param>
         private void tbBuscador_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -226,6 +317,9 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Realizars the busqueda.
+        /// </summary>
         private void RealizarBusqueda()
         {
             string searchText = tbBuscador.Text.Trim().ToLower();
@@ -254,6 +348,11 @@ namespace GESTPRO_IvanSobrinoCalzado
 
 
 
+        /// <summary>
+        /// Generars the proyectos aleatorios.
+        /// </summary>
+        /// <param name="cantidad">The cantidad.</param>
+        /// <returns></returns>
         private List<Proyecto> GenerarProyectosAleatorios(int cantidad)
         {
             string[] empresas = { "SAP", "Sage", "Odoo", "Acumatica" };
@@ -279,6 +378,11 @@ namespace GESTPRO_IvanSobrinoCalzado
 
 
 
+        /// <summary>
+        /// Handles the Click event of the bInsertar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bInsertar_Click(object sender, RoutedEventArgs e)
         {
             var proyectosAleatorios = GenerarProyectosAleatorios(20);
@@ -357,6 +461,11 @@ namespace GESTPRO_IvanSobrinoCalzado
 
         //    }
         //}
+        /// <summary>
+        /// Handles the Click event of the bAlta control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bAlta_Click(object sender, RoutedEventArgs e)
         {
             if (bAlta.Tag != null && bAlta.Tag.ToString() == "ActualizarPass")
@@ -411,6 +520,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the bEliminarUsuario control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bEliminarUsuario_Click(object sender, RoutedEventArgs e)
         {
             if(MessageBox.Show("Do you want to remove this user?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -439,6 +553,13 @@ namespace GESTPRO_IvanSobrinoCalzado
 
         //    bModificar.Content = "Actualizar";
         //}
+
+
+        /// <summary>
+        /// Handles the Click event of the bActualizarPass control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bActualizarPass_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuarioModificar = (Usuario)dgUsuarios.SelectedItem;
@@ -457,6 +578,9 @@ namespace GESTPRO_IvanSobrinoCalzado
             bAlta.Tag = "ActualizarPass"; // Marcar el botón con una etiqueta especial
         }
 
+        /// <summary>
+        /// Starts this instance.
+        /// </summary>
         private void start()
         {
             tbUsuario.Text = "";
@@ -465,6 +589,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             dgUsuarios.SelectedItems.Clear();
         }
 
+        /// <summary>
+        /// Encriptars the m d5.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns></returns>
         private string encriptarMD5(string text)
         {
         using (MD5 md5 = MD5.Create())
@@ -484,6 +613,11 @@ namespace GESTPRO_IvanSobrinoCalzado
          */
 
 
+        /// <summary>
+        /// Handles the Click event of the bAnadirEmpleado control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bAnadirEmpleado_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbNombreEmpleado.Text) ||
@@ -522,6 +656,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             cboxSeleccionarUsuario.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bModificarEmpleado control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bModificarEmpleado_Click(object sender, RoutedEventArgs e)
         {
             Empleado empleadoSeleccionado = (Empleado)dgEmpleados.SelectedItem;
@@ -572,6 +711,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             cboxSeleccionarUsuario.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Handles the Click event of the bEliminarEmpleado control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bEliminarEmpleado_Click(object sender, RoutedEventArgs e)
         {
             Empleado empleadoSeleccionado = (Empleado)dgEmpleados.SelectedItem;
@@ -592,6 +736,11 @@ namespace GESTPRO_IvanSobrinoCalzado
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the bRegistrarRecargarEmpleado control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void bRegistrarRecargarEmpleado_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbUsuarioEmpleado.Text) || string.IsNullOrWhiteSpace(tbPasswordEmpleado.Text))
@@ -612,6 +761,9 @@ namespace GESTPRO_IvanSobrinoCalzado
             tbPasswordEmpleado.Clear();
         }
 
+        /// <summary>
+        /// Cargars the usuarios desde bd.
+        /// </summary>
         private void CargarUsuariosDesdeBD()
         {
             Usuario usuario = new Usuario();
@@ -623,6 +775,9 @@ namespace GESTPRO_IvanSobrinoCalzado
             cboxSeleccionarUsuario.Items.Refresh();
         }
 
+        /// <summary>
+        /// Realizars the busqueda empleado.
+        /// </summary>
         private void RealizarBusquedaEmpleado()
         {
             //string searchText = tbBuscarEmpleado.Text.Trim().ToLower();
@@ -646,6 +801,65 @@ namespace GESTPRO_IvanSobrinoCalzado
             //}
 
             //dgProyectos.Items.Refresh();
+        }
+
+        /**
+         * 
+         * INFORMES
+         * 
+         */
+        /// <summary>
+        /// Informes the coste.
+        /// </summary>
+        private void informeCoste()
+        {
+            tablaCosteProyecto = new DataTable("CosteProyecto");
+
+            //Creamos las columnas
+            tablaCosteProyecto.Columns.Add("Project");
+            tablaCosteProyecto.Columns.Add("Month/Year");
+            tablaCosteProyecto.Columns.Add("Total Cost (CSR x Hours)");
+
+            DataRow row = tablaCosteProyecto.NewRow();
+            row["Project"] ="a"; //CONSULTA PARA COGER EL PROYECTO
+            row["Month/Year"] = "b"; //CONSULTA PARA COGER EL MES Y AÑO DEL PROYECTO
+            row["Total Cost (CSR x Hours)"] = "c"; //CONSULTA PARA COGER EL CSR DEL PROYECTO
+
+            tablaCosteProyecto.Rows.Add(row);
+
+            //Creamos una instancia del report
+            CostsByProject report = new CostsByProject();
+            report.Database.Tables["CosteProyecto"].SetDataSource(tablaCosteProyecto);
+
+            //visorCoste.ViewerCore.ReportSource = report; COMENTADO porque tengo que añadir el Viewer en el XAML
+        }
+
+        /// <summary>
+        /// Informes the number perfiles.
+        /// </summary>
+        private void informeNumPerfiles()
+        {
+            tablaNumPerfiles = new DataTable("NumberProfiles");
+
+            //Creamos las columnas
+            tablaNumPerfiles.Columns.Add("Project");
+            tablaNumPerfiles.Columns.Add("Month/Year");
+            tablaNumPerfiles.Columns.Add("Employee Profile"); //Rol de la persona
+            tablaNumPerfiles.Columns.Add("Number of People"); //Número total de personas que hay en ese rol en el proyecto
+
+            DataRow row = tablaNumPerfiles.NewRow();
+            row["Project"] = "a"; //Consulta para obtener el nombre del proyecto
+            row["Month/Year"] = "b"; //Consulta para obtener el mes y año 
+            row["Employee Profile"] = "c"; //Consulta para obtener los roles
+            row["Number of People"] = "d"; //Consulta para obtener el número de personas que hay en ese rol en el proyecto
+
+            tablaNumPerfiles.Rows.Add(row);
+
+            //Creamos una instancia del report
+            NumberProfiles report = new NumberProfiles();
+            report.Database.Tables["NumberProfiles"].SetDataSource(tablaNumPerfiles);
+
+            //visorNumPerfiles.ViewerCore.ReportSource = report; COMENTADO porque tengo que añadir el Viewer en el XAML
         }
     }
 }

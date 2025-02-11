@@ -13,7 +13,7 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
     {
         private static DBBroker _instancia;
         private static MySqlConnection conexion;
-        private const string cadenaConexion = "server=localhost;database=proyectoempleado;uid=root;pwd=root"; //toor en clase
+        private const string cadenaConexion = "server=localhost;database=proyectoempleado;uid=root;pwd=toor"; //toor en clase
 
         private DBBroker()
         {

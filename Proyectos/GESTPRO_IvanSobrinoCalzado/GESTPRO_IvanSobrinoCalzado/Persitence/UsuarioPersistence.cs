@@ -7,16 +7,34 @@ using System.Threading.Tasks;
 
 namespace GESTPRO_IvanSobrinoCalzado.Persitence
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class UsuarioPersistence
     {
+        /// <summary>
+        /// Gets or sets the usuario list.
+        /// </summary>
+        /// <value>
+        /// The usuario list.
+        /// </value>
         public List<Usuario> usuarioList { get; set; }
+        /// <summary>
+        /// The identifier us
+        /// </summary>
         int idUs;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UsuarioPersistence"/> class.
+        /// </summary>
         public UsuarioPersistence()
         {
             usuarioList = new List<Usuario>();
         }
 
+        /// <summary>
+        /// Reads the usuarios.
+        /// </summary>
         public void readUsuarios()
         {
             Usuario u = null;
@@ -37,6 +55,10 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
             }
         }
 
+        /// <summary>
+        /// Inserts the usuarios.
+        /// </summary>
+        /// <param name="u">The u.</param>
         public void insertUsuarios(Usuario u)
         {
             DBBroker broker = DBBroker.ObtenerAgente();
@@ -45,6 +67,10 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
                 "('" + u.Nombre + "', '" + u.Password + "')");
         }
 
+        /// <summary>
+        /// Deletes the usuarios.
+        /// </summary>
+        /// <param name="u">The u.</param>
         public void deleteUsuarios(Usuario u)
         {
             DBBroker broker = DBBroker.ObtenerAgente();
@@ -58,6 +84,10 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
 
         //    broker.modifier("Update usuario set NOMBREUSUARIO = " + u.nombre + ", PASSUSUARIO = " + u.password + " where IDUSUARIO = " + u.id);
         //}
+        /// <summary>
+        /// Modifies the usuario.
+        /// </summary>
+        /// <param name="u">The u.</param>
         public void modifyUsuario(Usuario u)
         {
             DBBroker broker = DBBroker.ObtenerAgente();
@@ -67,6 +97,11 @@ namespace GESTPRO_IvanSobrinoCalzado.Persitence
             broker.Modificar(query);
         }
 
+        /// <summary>
+        /// Lasts the identifier.
+        /// </summary>
+        /// <param name="u">The u.</param>
+        /// <returns></returns>
         public int lastId(Usuario u)
         {
             List<Object> lUsuarios;
