@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetNumberProfile" targetNamespace="http://tempuri.org/DataSetNumberProfile.xsd" xmlns:mstns="http://tempuri.org/DataSetNumberProfile.xsd" xmlns="http://tempuri.org/DataSetNumberProfile.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetNumberProfile" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetNumberProfile" msprop:Generator_DataSetName="DataSetNumberProfile">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NumberProfiles" msprop:Generator_RowEvHandlerName="NumberProfilesRowChangeEventHandler" msprop:Generator_RowDeletedName="NumberProfilesRowDeleted" msprop:Generator_RowDeletingName="NumberProfilesRowDeleting" msprop:Generator_RowEvArgName="NumberProfilesRowChangeEvent" msprop:Generator_TablePropName="NumberProfiles" msprop:Generator_RowChangedName="NumberProfilesRowChanged" msprop:Generator_RowChangingName="NumberProfilesRowChanging" msprop:Generator_TableClassName="NumberProfilesDataTable" msprop:Generator_RowClassName="NumberProfilesRow" msprop:Generator_TableVarName="tableNumberProfiles" msprop:Generator_UserTableName="NumberProfiles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Project" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_UserColumnName="Project" type="xs:string" minOccurs="0" />
+              <xs:element name="Month_x002F_Year" msprop:Generator_ColumnPropNameInRow="_Month_Year" msprop:Generator_ColumnPropNameInTable="_Month_YearColumn" msprop:Generator_ColumnVarNameInTable="_columnMonth_Year" msprop:Generator_UserColumnName="Month/Year" type="xs:string" minOccurs="0" />
+              <xs:element name="Employee_x0020_Profile" msprop:Generator_ColumnPropNameInRow="Employee_Profile" msprop:Generator_ColumnPropNameInTable="Employee_ProfileColumn" msprop:Generator_ColumnVarNameInTable="columnEmployee_Profile" msprop:Generator_UserColumnName="Employee Profile" type="xs:string" minOccurs="0" />
+              <xs:element name="Number_x0020_of_x0020_People" msprop:Generator_ColumnPropNameInRow="Number_of_People" msprop:Generator_ColumnPropNameInTable="Number_of_PeopleColumn" msprop:Generator_ColumnVarNameInTable="columnNumber_of_People" msprop:Generator_UserColumnName="Number of People" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

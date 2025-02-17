@@ -1,0 +1,317 @@
+﻿<Window x:Class="GESTPRO_IvanSobrinoCalzado.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GESTPRO_IvanSobrinoCalzado"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="401*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#FF670038" Grid.Row="0">
+            <Label Content="GESTPRO" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Cascadia Code Light" Foreground="White" FontStretch="ExtraExpanded" FontSize="16" />
+        </Grid>
+        <Grid Background="#FFFFE8D0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="43*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="371*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <TabControl TabStripPlacement="Left" Grid.Row="2" Margin="0,27,0,0" BorderBrush="{x:Null}" Background="{x:Null}"  >
+            <TabItem Header="INICIO" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF" FontWeight="Bold">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="4" Grid.Column="3"/>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="1" Grid.ColumnSpan="3" Margin="193,16,113,63" Grid.RowSpan="4" Grid.Row="1" Opacity="0.3"/>
+                    <Ellipse HorizontalAlignment="Left" Height="57" Margin="10,0,0,0" VerticalAlignment="Center" Width="133" Fill="#FFF993FF" Grid.Row="1" Grid.ColumnSpan="2">
+                        <UIElement.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </UIElement.RenderTransform>
+                    </Ellipse>
+                    <Button Content="PROYECTOS" Name="bProyectos" Grid.Row="1" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Margin="21,16,0,17" Background="{x:Null}" BorderBrush="{x:Null}" Click="bProyectos_Click"/>
+
+                    <Ellipse HorizontalAlignment="Center" Height="57" VerticalAlignment="Center" Width="133" Fill="#FFF993FF" Grid.Row="1" Grid.Column="1">
+                        <UIElement.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </UIElement.RenderTransform>
+                    </Ellipse>
+                    <Button Content="ESTADISTICAS" Name="bEstadistica" Grid.Row="1" Grid.Column="1" Width="130" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Click="bEstadistica_Click" />
+
+                    <Ellipse HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="133" Fill="#FFF993FF" Grid.Row="2" Grid.Column="1" Margin="34,7,0,0">
+                        <UIElement.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </UIElement.RenderTransform>
+                    </Ellipse>
+                    <Button Content="USUARIOS" Name="bUsuarios" Grid.Row="2" Grid.Column="1" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Margin="46,17,31,17" Click="bUsuarios_Click"/>
+
+                    <Ellipse HorizontalAlignment="Left" Height="57" VerticalAlignment="Center" Width="133" Fill="#FFF993FF" Grid.Row="2" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                        <UIElement.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </UIElement.RenderTransform>
+                    </Ellipse>
+                    <Button Content="EMPLEADOS" Name="bEmpleados" Grid.Row="2" Width="110" Height="40" FontSize="15" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Margin="21,17,0,17" Click="bEmpleados_Click"/>
+
+                    <Ellipse HorizontalAlignment="Left" Height="57" Margin="10,6,0,0" VerticalAlignment="Top" Width="133" Fill="#FFF993FF" Grid.Row="3" Grid.ColumnSpan="2">
+                        <UIElement.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </UIElement.RenderTransform>
+                    </Ellipse>
+                    <Button Content="G-ECONÓMICA" Name="bEconomica" Grid.Row="3" VerticalAlignment="Top" Height="40" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}" Margin="15,14,174,0" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="bEconomica_Click"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="PROYECTO" Name="tiProyecto" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="dgProyectos" Grid.ColumnSpan="4" Margin="32,30,122,31" Grid.RowSpan="3" Grid.Row="2" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Código Proyecto" Binding="{Binding CodigoProyecto}" Width="*"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                            <DataGridTextColumn Header="Fecha Inicio" Binding="{Binding FechaInicio, StringFormat=d}" Width="*"/>
+                            <DataGridTextColumn Header="Fecha Fin" Binding="{Binding FechaFin, StringFormat=d}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="4">
+                        <Label Content="Código Proyecto" Grid.Row="1" Grid.Column="4"/>
+                        <TextBox x:Name="tbCodigo" Grid.Row="1" Grid.Column="4" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4">
+                        <Label Content="Nombre"/>
+                        <TextBox x:Name="tbNombre" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4">
+                        <Label Content="Fecha Inicio"/>
+                        <DatePicker x:Name="dpFechaInicio" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="4">
+                        <Label Content="Fecha Fin"/>
+                        <DatePicker x:Name="dpFechaFin" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="3" Margin="10,-2,127,45" Grid.RowSpan="3" Opacity="0.3" Grid.ColumnSpan="2"/>
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="5" Grid.Column="0"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="2">
+                        <Button Content="Añadir" Name="bAnadir" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bAnadir_Click" />
+                        <Button Content="Modificar" Name="bModificar" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bModificar_Click"/>
+                        <Button Content="Eliminar" x:Name="bEliminar" Width="120" Height="25" Background="#FFA20094" Click="bEliminar_Click"/>
+                    </StackPanel>
+                    <TextBox Name="tbBuscador" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="350" Height="25" Margin="54,19,7,18" TextChanged="tbBuscador_TextChanged"/>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="3">
+                        <Button Content="Insertar" Name="bInsertar" Width="120" Height="25" Click="bInsertar_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tiEmpleados" Header="EMPLEADOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBox x:Name="tbBuscarEmpleado" Margin="30,10,30,0" Height="40"/>
+                        <DataGrid x:Name="dgEmpleados" Margin="20,10,20,0" Height="150">
+
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2">
+                        <Label Content="Nombre"/>
+                        <TextBox x:Name="tbNombreEmpleado" Margin="10,0,10,0" Height="25"/>
+                        <Label Content="Apellidos"/>
+                        <TextBox x:Name="tbApellidosEmpleado" Margin="10,0,10,0" Height="25"/>
+                        <Label Content="ROL"/>
+                        <ComboBox x:Name="cboxRolEmpleado" Margin="10,0,10,0" Height="25">
+                            <ComboBoxItem Tag="1" Content="PROGRAMADOR JUNIOR"/>
+                            <ComboBoxItem Tag="2" Content="PROGRAMADOR"/>
+                            <ComboBoxItem Tag="3" Content="PROGRAMADOR SENIOR"/>
+                            <ComboBoxItem Tag="4" Content="JEFE PROYECTO"/>
+                        </ComboBox>
+                        <Label Content="CSR"/>
+                        <TextBox x:Name="tbCSREmpleado" Margin="10,0,10,0" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="0">
+                        <CheckBox Content="USUARIO YA REGISTRADO" x:Name="cbRegistrado" Margin="10,10,10,10"/>
+                        <CheckBox Content="USUARIO NO REGISTRADO" x:Name="cbNoRegistrado" Margin="10,0,10,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                        <Button x:Name="bAnadirEmpleado" Content="Añadir" Margin="10,10,10,10" Height="30" Width="70" Background="#FFA20094" Click="bAnadirEmpleado_Click"/>
+                        <Button x:Name="bModificarEmpleado" Content="Modificar" Margin="10,10,10,10" Height="30" Width="70" Background="#FFA20094" Click="bModificarEmpleado_Click"/>
+                        <Button x:Name="bEliminarEmpleado" Content="Eliminar" Margin="10,10,10,10" Height="30" Width="70" Background="#FFA20094" Click="bEliminarEmpleado_Click"/>
+                    </StackPanel>
+                    <ComboBox Name="cboxSeleccionarUsuario" Grid.Column="0" Grid.Row="3" Margin="10,10,10,10" Height="35" ItemsSource="{Binding Usuarios}">
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                            <Label Content="Usuario" HorizontalAlignment="Center"/>
+                            <TextBox x:Name="tbUsuarioEmpleado" Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                            <Label Content="Password" HorizontalAlignment="Center"/>
+                            <TextBox x:Name="tbPasswordEmpleado" Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                            <Button Content="Registrar y recargar" Name="bRegistrarRecargarEmpleado" Width="125" Height="30" Background="#FFA20094"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="2" Margin="199,25,0,25" Opacity="0.3" />
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="3" Grid.Column="0" Margin="0,52,156,-9"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tiGEconomica" Header="G. ECONOMICA" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid x:Name="dgEconomica" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Width="400" Height="200">
+
+                    </DataGrid>
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Label Content="Proyecto"/>
+                        <ComboBox x:Name="cboxProyecto" Height="30" Width="200"/>
+                        <Label Content="Empleado"/>
+                        <ComboBox Name="cboxEmpleado" Height="30" Width="200"/>
+                        <Label Content="Fecha"/>
+                        <DatePicker Name="dpFecha" Width="200"/>
+                        <Label Content="Horas"/>
+                        <TextBox x:Name="tbHoras" Height="30" Width="200"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                        <Button x:Name="bImputarHoras" Content="Imputar horas" Width="100" Height="40" Margin="10" Background="#FFA20094"/>
+                        <Button x:Name="bModificarEconomica" Content="Modificar" Width="100" Height="40" Margin="10" Background="#FFA20094" />
+                        <Button x:Name="bEliminarEconomica" Content="Eliminar" Width="100" Height="40" Margin="10" Background="#FFA20094" />
+                    </StackPanel>
+
+                    <Image Source="/View/palm_3086199.png" Grid.Column="2" Margin="199,-22,0,72" Opacity="0.3" />
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="2" Grid.Column="0" Margin="0,46,100,-22"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tiEstadisticas" Header="ESTADÍSTICAS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid>
+                    <Button x:Name="bMostrarInforme" Content="Mostrar informe" Width="110" Height="35" Margin="342,26,233,307"/>
+                    <Image Source="/View/palm_3086199.png" Margin="627,-5,10,295" Opacity="0.3" />
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Column="0" Margin="583,328,10,5"/>
+                    <ComboBox Name="cbInformes" Width="130" Height="25" Margin="127,31,428,312"/>
+                    <!--Aquí va <Viewer: CrystalReportsViewer Name="visorCoste"/> MIRAR cómo se añade-->
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tiUsuarios" Header="USUARIOS" FontFamily="Comic Sans MS" BorderBrush="{x:Null}" Background="#FFF993FF">
+                <Grid Background="#FFFFE8D0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dgUsuarios" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="50,75,50,10">
+                        <!--<DataGrid.Columns>
+                            <DataGridTextColumn Header="Usuario" Binding="{Binding UsuarioNombre}" Width="*"/>
+                            <DataGridTextColumn Header="Contraseña" Binding="{Binding ContrasenaUsuario}" Width="*"/>
+                        </DataGrid.Columns>-->
+                    </DataGrid>
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" VerticalAlignment="Center">
+                        <Label Content="Usuario" FontSize="14" FontWeight="Bold" />
+                        <TextBox x:Name="tbUsuario" Background="White" Margin="0,0,10,0" Height="20"/>
+                        <Label Content="Password" FontWeight="Bold" FontSize="14"/>
+                        <TextBox x:Name="tbPassword" Background="White" Margin="0,0,10,0" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Button x:Name="bAlta" Content="Dar de alta" Margin="0,0,20,0" Height="25" Width="150" Background="#FFA20094" Click="bAlta_Click"/>
+                        <Button x:Name="bEliminarUsuario" Content="Eliminar" Margin="0,0,20,0" Height="25" Width="150" Background="#FFA20094" Click="bEliminarUsuario_Click"/>
+                        <Button x:Name="bActualizarPass" Content="Actualizar contraseña" Margin="0,0,20,0" Height="25" Width="150" Background="#FFA20094" Click="bActualizarPass_Click"/>
+                    </StackPanel>
+                    <Image Source="/View/palm_3086199.png" Grid.Column="3" Margin="96,-4,0,47" Grid.RowSpan="3" Opacity="0.3"/>
+                    <Image Source="/View/logotipo-ies-maestredecalatrava-1.png" Grid.Row="3" Grid.Column="0" Margin="0,46,56,-14"/>
+                </Grid>
+            </TabItem>
+            <Grid/>
+        </TabControl>
+    </Grid>
+</Window>
