@@ -1,0 +1,113 @@
+﻿<Window x:Class="ReadingClub.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReadingClub"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="Members">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="dgMembers" SelectionChanged="dgMembers_SelectionChanged" AutoGenerateColumns="False" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="DateBirth" Binding="{Binding DateBirth, StringFormat=d}" Width="*"/>
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                            <DataGridTextColumn Header="Telephone" Binding="{Binding Telephone}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="4">
+                        <Label Content="Name" Grid.Row="1" Grid.Column="4"/>
+                        <TextBox x:Name="tbNameMember" Grid.Row="1" Grid.Column="4" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4">
+                        <Label Content="Email"/>
+                        <TextBox x:Name="tbEmailMember" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4">
+                        <Label Content="Date Birth"/>
+                        <DatePicker x:Name="dpDateBirthMember" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="4">
+                        <Label Content="Telephone"/>
+                        <TextBox x:Name="tbTelephoneMember" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0">
+                        <Button Content="Añadir" Name="bAnadirMember" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bAnadirMember_Click" />
+                        <Button Content="Modificar" Name="bModificarMember" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bModificarMember_Click"/>
+                        <Button Content="Eliminar" x:Name="bEliminarMember" Width="120" Height="25" Background="#FFA20094" Click="bEliminarMember_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Books">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="dgBooks" SelectionChanged="dgBooks_SelectionChanged" AutoGenerateColumns="False" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                            <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
+                            <DataGridTextColumn Header="GenreID" Binding="{Binding GenreID}" Width="*"/>
+                            <DataGridTextColumn Header="Publication Year" Binding="{Binding PublicationYear}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="4">
+                        <Label Content="Title" Grid.Row="1" Grid.Column="4"/>
+                        <TextBox x:Name="tbTitleBook" Grid.Row="1" Grid.Column="4" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4">
+                        <Label Content="Author"/>
+                        <TextBox x:Name="tbAuthorBook" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4">
+                        <Label Content="GenreID"/>
+                        <TextBox x:Name="tbGenreID" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                        <!--UN COMBOBOX-->
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="4">
+                        <Label Content="Publication Year"/>
+                        <DatePicker x:Name="dpPublicationYear" Background="AliceBlue" Opacity="0.8" Width="130" Height="25"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0">
+                        <Button Content="Añadir" Name="bAnadirBook" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bAnadirBook_Click" />
+                        <Button Content="Modificar" Name="bModificarBook" Width="120" Height="25" Margin="0,0,5,0" Background="#FFA20094" Click="bModificarBook_Click"/>
+                        <Button Content="Eliminar" x:Name="bEliminarBook" Width="120" Height="25" Background="#FFA20094" Click="bEliminarBook_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Reports">
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

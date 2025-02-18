@@ -1,0 +1,586 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReadingClub</name>
+    </assembly>
+    <members>
+        <member name="T:ReadingClub.App">
+            <summary>
+            Lógica de interacción para App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:ReadingClub.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:ReadingClub.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.Control.Book">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Book.id">
+            <summary>
+            The identifier
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Book.title">
+            <summary>
+            The title
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Book.author">
+            <summary>
+            The author
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Book.genreId">
+            <summary>
+            The genre identifier
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Book.publicationYear">
+            <summary>
+            The publication year
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Book.bp">
+            <summary>
+            The bp
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Book.#ctor(System.Int32,System.String,System.String,System.Int32,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Control.Book"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="title">The title.</param>
+            <param name="author">The author.</param>
+            <param name="genreId">The genre identifier.</param>
+            <param name="publicationYear">The publication year.</param>
+        </member>
+        <member name="M:ReadingClub.Control.Book.#ctor(System.String,System.String,System.Int32,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Control.Book"/> class.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="author">The author.</param>
+            <param name="genreId">The genre identifier.</param>
+            <param name="publicationYear">The publication year.</param>
+        </member>
+        <member name="M:ReadingClub.Control.Book.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Control.Book"/> class.
+            </summary>
+        </member>
+        <member name="P:ReadingClub.Control.Book.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Book.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Book.Author">
+            <summary>
+            Gets or sets the author.
+            </summary>
+            <value>
+            The author.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Book.GenreId">
+            <summary>
+            Gets or sets the genre identifier.
+            </summary>
+            <value>
+            The genre identifier.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Book.PublicationYear">
+            <summary>
+            Gets or sets the publication year.
+            </summary>
+            <value>
+            The publication year.
+            </value>
+        </member>
+        <member name="M:ReadingClub.Control.Book.readBooks">
+            <summary>
+            Reads the books.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Book.getListaBooks">
+            <summary>
+            Gets the lista books.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ReadingClub.Control.Book.insert">
+            <summary>
+            Inserts this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Book.delete">
+            <summary>
+            Deletes this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Book.update">
+            <summary>
+            Updates this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Book.last">
+            <summary>
+            Lasts this instance.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.Control.Member">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Member.id">
+            <summary>
+            The identifier
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Member.name">
+            <summary>
+            The name
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Member.dateBirth">
+            <summary>
+            The date birth
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Member.email">
+            <summary>
+            The email
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Member.telephone">
+            <summary>
+            The telephone
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Control.Member.mp">
+            <summary>
+            The mp
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Member.#ctor(System.Int32,System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Control.Member"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="name">The name.</param>
+            <param name="dateBirth">The date birth.</param>
+            <param name="email">The email.</param>
+            <param name="telephone">The telephone.</param>
+        </member>
+        <member name="M:ReadingClub.Control.Member.#ctor(System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Control.Member"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="dateBirth">The date birth.</param>
+            <param name="email">The email.</param>
+            <param name="telephone">The telephone.</param>
+        </member>
+        <member name="M:ReadingClub.Control.Member.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Control.Member"/> class.
+            </summary>
+        </member>
+        <member name="P:ReadingClub.Control.Member.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Member.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Member.DateBirth">
+            <summary>
+            Gets or sets the date birth.
+            </summary>
+            <value>
+            The date birth.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Member.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:ReadingClub.Control.Member.Telephone">
+            <summary>
+            Gets or sets the telephone.
+            </summary>
+            <value>
+            The telephone.
+            </value>
+        </member>
+        <member name="M:ReadingClub.Control.Member.readMembers">
+            <summary>
+            Reads the members.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Member.getListaMembers">
+            <summary>
+            Gets the lista members.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ReadingClub.Control.Member.insert">
+            <summary>
+            Inserts this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Member.delete">
+            <summary>
+            Deletes this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Member.update">
+            <summary>
+            Updates this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Control.Member.last">
+            <summary>
+            Lasts this instance.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.dsBook">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.dsBook.DataTable1DataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.dsBook.DataTable1Row">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.dsBook.DataTable1RowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ReadingClub.dsLending">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.Persistence.DBBroker">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Persistence.DBBroker._instancia">
+            <summary>
+            The instancia
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Persistence.DBBroker.conexion">
+            <summary>
+            The conexion
+            </summary>
+        </member>
+        <member name="F:ReadingClub.Persistence.DBBroker.cadenaConexion">
+            <summary>
+            The cadena conexion
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.DBBroker.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:ReadingClub.Persistence.DBBroker"/> class from being created.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.DBBroker.obtenerAgente">
+            <summary>
+            Obteners the agente.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ReadingClub.Persistence.DBBroker.leer(System.String)">
+            <summary>
+            Leers the specified SQL.
+            </summary>
+            <param name="sql">The SQL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ReadingClub.Persistence.DBBroker.modificar(System.String)">
+            <summary>
+            Modificars the specified SQL.
+            </summary>
+            <param name="sql">The SQL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ReadingClub.Persistence.DBBroker.conectar">
+            <summary>
+            Conectars this instance.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.DBBroker.desconectar">
+            <summary>
+            Desconectars this instance.
+            </summary>
+        </member>
+        <member name="T:ReadingClub.Persistence.Manages.BookPersistence">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReadingClub.Persistence.Manages.BookPersistence.bookList">
+            <summary>
+            Gets or sets the book list.
+            </summary>
+            <value>
+            The book list.
+            </value>
+        </member>
+        <member name="F:ReadingClub.Persistence.Manages.BookPersistence.idBook">
+            <summary>
+            The identifier book
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.BookPersistence.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Persistence.Manages.BookPersistence"/> class.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.BookPersistence.readBooks">
+            <summary>
+            Reads the books.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.BookPersistence.insertBooks(ReadingClub.Control.Book)">
+            <summary>
+            Inserts the books.
+            </summary>
+            <param name="b">The b.</param>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.BookPersistence.deleteBooks(ReadingClub.Control.Book)">
+            <summary>
+            Deletes the books.
+            </summary>
+            <param name="b">The b.</param>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.BookPersistence.modifyBook(ReadingClub.Control.Book)">
+            <summary>
+            Modifies the book.
+            </summary>
+            <param name="b">The b.</param>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.BookPersistence.lastId(ReadingClub.Control.Book)">
+            <summary>
+            Lasts the identifier.
+            </summary>
+            <param name="b">The b.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ReadingClub.Persistence.Manages.MemberPersistence">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReadingClub.Persistence.Manages.MemberPersistence.memberList">
+            <summary>
+            Gets or sets the member list.
+            </summary>
+            <value>
+            The member list.
+            </value>
+        </member>
+        <member name="F:ReadingClub.Persistence.Manages.MemberPersistence.idMem">
+            <summary>
+            The identifier memory
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.MemberPersistence.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.Persistence.Manages.MemberPersistence"/> class.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.MemberPersistence.readMembers">
+            <summary>
+            Reads the members.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.MemberPersistence.insertMembers(ReadingClub.Control.Member)">
+            <summary>
+            Inserts the members.
+            </summary>
+            <param name="m">The m.</param>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.MemberPersistence.deleteMembers(ReadingClub.Control.Member)">
+            <summary>
+            Deletes the members.
+            </summary>
+            <param name="m">The m.</param>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.MemberPersistence.modifyMember(ReadingClub.Control.Member)">
+            <summary>
+            Modifies the member.
+            </summary>
+            <param name="m">The m.</param>
+        </member>
+        <member name="M:ReadingClub.Persistence.Manages.MemberPersistence.lastId(ReadingClub.Control.Member)">
+            <summary>
+            Lasts the identifier.
+            </summary>
+            <param name="m">The m.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ReadingClub.MainWindow">
+            <summary>
+            Lógica de interacción para MainWindow.xaml
+            </summary>
+            <seealso cref="T:System.Windows.Window" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:ReadingClub.MainWindow.lstMembers">
+            <summary>
+            The LST members
+            </summary>
+        </member>
+        <member name="M:ReadingClub.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ReadingClub.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.MainWindow.dgMembers_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            
+            
+            MEMBERS
+            
+            <summary>
+            Handles the SelectionChanged event of the dgMembers control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.bAnadirMember_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the bAnadirMember control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.bModificarMember_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the bModificarMember control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.bEliminarMember_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the bEliminarMember control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.startMember">
+            <summary>
+            Starts the member.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.MainWindow.dgBooks_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            
+            BOOKS
+            
+            <summary>
+            Handles the SelectionChanged event of the dgBooks control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.bAnadirBook_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the bAnadirBook control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.bModificarBook_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the bModificarBook control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.bEliminarBook_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the bEliminarBook control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:ReadingClub.MainWindow.startBook">
+            <summary>
+            Starts the book.
+            </summary>
+        </member>
+        <member name="M:ReadingClub.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReadingClub.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:ReadingClub.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:ReadingClub.Properties.Resources.Culture">
+            <summary>
+              Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos usando esta clase de recursos fuertemente tipados.
+            </summary>
+        </member>
+    </members>
+</doc>
