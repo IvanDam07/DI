@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="monthlyData" targetNamespace="http://tempuri.org/monthlyData.xsd" xmlns:mstns="http://tempuri.org/monthlyData.xsd" xmlns="http://tempuri.org/monthlyData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="monthlyData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="monthlyData" msprop:Generator_DataSetName="monthlyData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="monthlyData" msprop:Generator_RowEvHandlerName="monthlyDataRowChangeEventHandler" msprop:Generator_RowDeletedName="monthlyDataRowDeleted" msprop:Generator_RowDeletingName="monthlyDataRowDeleting" msprop:Generator_RowEvArgName="monthlyDataRowChangeEvent" msprop:Generator_TablePropName="_monthlyData" msprop:Generator_RowChangedName="monthlyDataRowChanged" msprop:Generator_RowChangingName="monthlyDataRowChanging" msprop:Generator_TableClassName="monthlyDataDataTable" msprop:Generator_RowClassName="monthlyDataRow" msprop:Generator_TableVarName="tablemonthlyData" msprop:Generator_UserTableName="monthlyData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
+              <xs:element name="LoanDate" msprop:Generator_ColumnPropNameInRow="LoanDate" msprop:Generator_ColumnPropNameInTable="LoanDateColumn" msprop:Generator_ColumnVarNameInTable="columnLoanDate" msprop:Generator_UserColumnName="LoanDate" type="xs:string" minOccurs="0" />
+              <xs:element name="ReturnDate" msprop:Generator_ColumnPropNameInRow="ReturnDate" msprop:Generator_ColumnPropNameInTable="ReturnDateColumn" msprop:Generator_ColumnVarNameInTable="columnReturnDate" msprop:Generator_UserColumnName="ReturnDate" type="xs:string" minOccurs="0" />
+              <xs:element name="MemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_UserColumnName="MemberName" type="xs:string" minOccurs="0" />
+              <xs:element name="BookName" msprop:Generator_ColumnPropNameInRow="BookName" msprop:Generator_ColumnPropNameInTable="BookNameColumn" msprop:Generator_ColumnVarNameInTable="columnBookName" msprop:Generator_UserColumnName="BookName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

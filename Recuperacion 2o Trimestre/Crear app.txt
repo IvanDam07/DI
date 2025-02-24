@@ -1,0 +1,16 @@
+Para crear un .exe desde la Visual Studio
+	1. Abre el proyecto/solución
+	2. Seleccionas Compilar (se encuentra en las opciones de arriba del todo)
+	3. Publicar ____ ( ___ = nombre del proyecto/Solución)
+	4. Se abre una ventana
+		4.1 Especificas donde quieres que se guarde el .exe
+		Una vez seleccionado clic en siguiente.
+
+		4.2 ¿Cómo instalarán los usuarios la aplicacion? --> Seleccionas Desde un CD-ROOM o un DVD-ROM
+		Una vez seleccionado clic en siguiente.
+
+		4.3 La aplicación buscará actualizaciones y dejas la ruta por defecto. Si no quieres que se actualize selecionas la segunda opción
+
+		4.4 Resumen de las opciones escogidas y pulsas en finalizar.
+
+Te vas a donde hayas guardado el .exe(.application) te lo descargas y ejecutas+

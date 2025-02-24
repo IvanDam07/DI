@@ -1,0 +1,153 @@
+﻿<Window x:Class="proyectoExamen.MainWindow"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <TabControl>
+
+            <TabItem Header="MEMBERS">
+
+                <Grid Background="#FFFDFDFD">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="47*"/>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="63*"/>
+                        <ColumnDefinition Width="63*"/>
+                        <ColumnDefinition Width="63*"/>
+                        <ColumnDefinition Width="63*"/>
+                        <ColumnDefinition Width="82*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnInsertMember" Content="Insert" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="33" Width="116" Grid.Column="2" Click="btnInsertMember_Click"/>
+                    <Button Name="btnModMember" Grid.Column="3" Content="Update" HorizontalAlignment="Left" Margin="28,0,0,0" Grid.Row="5" VerticalAlignment="Center" Height="33" Width="117" Click="btnModMember_Click" Grid.ColumnSpan="2"/>
+                    <Button Name="btnDeleteMember" Grid.Column="5" Content="Delete" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="5" VerticalAlignment="Top" Height="35" Width="117" Click="btnDeleteMember_Click"/>
+
+
+                    <DataGrid Name="dgMembers" AutoGenerateColumns="False" Grid.ColumnSpan="6" Margin="0,0,46,67" Grid.RowSpan="5" SelectionChanged="dgMembers_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date of Birth" Binding="{Binding DateBirth}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Telephone" Binding="{Binding PhoneNumber}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="150"/>
+                    <TextBox Name="txtNameMember" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"/>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="30,63,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="180" Grid.RowSpan="2"/>
+                    <TextBox Name="txtEmailMember" Grid.Column="6" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="150"/>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" Margin="0,63,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Birth Date" VerticalAlignment="Top" Grid.RowSpan="2" Width="150"/>
+                    <DatePicker Name="dpDateBirth" Text=" " Background="#FFE2CDE2" Height="25" Margin="30,22,30,21" FontFamily="Cascadia Code Light" Grid.Column="6" Grid.Row="2"/>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Width="150"/>
+                    <TextBox Name="txtTelephoneMember" Grid.Column="6" HorizontalAlignment="Center" Margin="0,32,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="BOOKS">
+
+                <Grid Background="#FFFDFDFD">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnInsertBook" Content="Insert" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Center" Height="33" Width="116" Grid.Column="2" Click="btnInsertBook_Click" Grid.ColumnSpan="2" Margin="0,0,88,0"/>
+                    <Button Name="btnModBook" Grid.Column="3" Content="Update" HorizontalAlignment="Left" Margin="28,0,0,0" Grid.Row="5" VerticalAlignment="Center" Height="33" Width="117" Click="btnModBook_Click"/>
+                    <Button Name="btnDeleteBook" Grid.Column="4" Content="Delete" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="5" VerticalAlignment="Top" Height="35" Width="117" Click="btnDeleteBook_Click"/>
+                    <Button Name="btnLoan" Grid.Column="5" Content="Loan" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="5" VerticalAlignment="Top" Height="35" Width="117" Click="btnLoan_Click"/>
+                    <Button Name="btnReturn" Grid.Column="6" Content="Return" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="5" VerticalAlignment="Top" Height="35" Width="117" Click="btnReturn_Click"/>
+
+                    <DataGrid Name="dgBooks" AutoGenerateColumns="False" Grid.ColumnSpan="6" Margin="0,0,210,0" Grid.RowSpan="4" SelectionChanged="dgBooks_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Author" Binding="{Binding Author}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Genre" Binding="{Binding GenreId}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Year" Binding="{Binding PublicationYear}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="150"/>
+                    <TextBox Name="txtTitleBook" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"/>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" Margin="0,63,0,0" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top" Width="180" Grid.RowSpan="2"/>
+                    <TextBox Name="txtAuthorBook" Grid.Column="6" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="150"/>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" Margin="0,63,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top" Grid.RowSpan="2" Width="150"/>
+                    <ComboBox Name="cmbGenders" Text=" " Background="#FFE2CDE2" Height="25" Margin="30,22,30,21" FontFamily="Cascadia Code Light" Grid.Column="6" Grid.Row="2"/>
+
+                    <TextBlock Grid.Column="6" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Year" VerticalAlignment="Top" Width="150"/>
+                    <TextBox Name="txtYear" Grid.Column="6" HorizontalAlignment="Center" Margin="0,32,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="DATA" Height="20" VerticalAlignment="Top">
+
+                <Grid Background="#FFFDFDFD">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Viewer:CrystalReportsViewer x:Name="reportViewer" Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="6"/>
+
+                    <Button Name="btnCargarReport" Content="Cargar" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="1" Click="btnCargarReport_Click"/>
+
+                    <ComboBox Name="cmbBoxElegirInforme" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="1"/>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+
+
+    </Grid>
+</Window>
